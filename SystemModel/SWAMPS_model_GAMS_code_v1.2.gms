@@ -363,6 +363,7 @@ EQUATIONS
      EqRemovedCV(yr,mn,dy,i)       Eq to estimate invasive cover vegetation that is removed
      EqCost                        Cost of management of cover vegetation (use that when I have unique budget but dynamic unit cost)
      EqHSI_CVinv(yr,mn,dy,i)       Eq to estimate HSI for especific Cover Vegetation
+     EqHSI_CVinv2(yr,mn,dy,wu)     Eq to test HSI=1
      EqBud(yr,mn,dy,wu)            Budget per month and wu
      EqRemovedCV2(yr,mn,dy,wu)      To make sure the removed is lower than present CV.
 
@@ -643,6 +644,12 @@ EqHSI_CVinv(yr,mn,dy,wu)..  HSI_CVinv(yr,mn,dy,wu) =e=
                                                            (((PHV1-PHV4)/(1+(((CVinvasive(yr,mn,dy,wu)+0.001)/PHV3)**(PHV2)))) + PHV4);
 
 
+**********************************************************************************
+* Testing with Habitat suitability related to vegetation cover equal to 1
+
+EqHSI_CVinv2(yr,mn,dy,wu)..  HSI_CVinv(yr,mn,dy,wu) =e= 1 ;
+
+**********************************************************************************
 
 *-----------------------------------------
 *Estimate the flood Area
@@ -694,7 +701,11 @@ ObjectiveFunction..
 * Solving the Model
 *===================================
 
-MOdel Nov30 /all/
+*MOdel Nov30 /all/
+Model Nov30 original version  /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
+*Model Nov30 Adding HSI_CV=1/EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv2,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
+*Model Nov30 original version with gates /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqGateActRelease,EqGateActDeliv,EqGateAct2,EqGateAct3,EqHSIcomp,EqWUAW,ObjectiveFunction/;
+
 
 
 option limrow = 10000
@@ -712,5 +723,40 @@ Display Obj.l,  S.m  ;
 
 
 
+$ontext
+execute_unload "Nov30.gdx" S,
+WUAW,Area,initStor2,Inflow,
+TotalArea,MaxStor,
+WDepth
+*,ROW_Hydro2
+*,lossEvap,HSI_WD3
+
+HSI_CVinv, InitCV_iv2,CVinvasive,RemovedCV, HSI_CVinv,Bud
+,EqMassBalNonStor_Out,
+HSIcomp,
+HSI_spec
+*execute 'gdxxrw.exe Nov30.gdx par=Inflow.l rng=CheckWater!A1:AZ14  par=initStor.l rng=CheckWater!A16:AZ29  var=Q.l rng=CheckWater!A31:AZ45 Rdim=3 SQ=N   var=S.l rng=CheckWater!A62:AZ75      var=Area.l rng=CheckWater!A107:AZ120 Rdim=3 SQ=N  '
+execute 'gdxxrw.exe Nov30.gdx par=InitCV_iv2.l rng=CheckCV!D1:ZZ14 Cdim=1  SQ=N  var=RemovedCV.l rng=CheckCV!A16:ZZ29 SQ=N   var=CVinvasive.l rng=CheckCV!A31:ZZ44 var=Bud.l rng=CheckCV!A46:ZZ59  SQ=N var=HSI_CVinv.l rng=CheckCV!A61:ZZ74 Rdim=3 SQ=N  par=TotalArea.l rng=CheckCV!A77:ZZ107 Cdim=1  par=MaxStor.l rng=CheckCV!A82:ZZ107 Cdim=1'
+
+*execute 'gdxxrw.exe Nov30.gdx var=HSI_WD2.l rng=HSI_WD! '
+execute 'gdxxrw.exe Nov30.gdx var=ROW_Hydro.l rng=ROW_Water!'
+
+*execute 'gdxxrw.exe Nov30.gdx var=ROW_Hydro2.l rng=ROW_Water2!'
+
+execute 'gdxxrw.exe Nov30.gdx var=WUAW2.l rng=WUAW2! Rdim=4 '
+*execute 'gdxxrw.exe Nov30.gdx  var=HSI_CVinv.l rng=HSI_CV! Rdim=3 Cdim=1'
+*execute 'gdxxrw.exe Nov30.gdx var=WDepth.l rng=WDepth!'
+execute 'gdxxrw.exe Nov30.gdx par=Inflow.l rng=CheckWater!A1:AZ14 '
+execute 'gdxxrw.exe Nov30.gdx par=initStor2.l rng=CheckWater!D16:AZ29  SQ=N  '
+execute 'gdxxrw.exe Nov30.gdx  var=S.l rng=CheckWater!A62:AZ75      '
+execute 'gdxxrw.exe Nov30.gdx  var=WDepth.l rng=CheckWater!A77:AZ90   '
+execute 'gdxxrw.exe Nov30.gdx  var=Area.l rng=CheckWater!A122:AZ135 Rdim=3 SQ=N   '
+execute 'gdxxrw.exe Nov30.gdx  var=HSI_WD3.l rng=CheckWater!A137:BZ153 Rdim=3 Cdim=2  SQ=N '
+execute 'gdxxrw.exe Nov30.gdx  var=HSI_CVinv.l rng=CheckWater!A155:BZ170 Rdim=3 Cdim=1'
+execute 'gdxxrw.exe Nov30.gdx var=WUAW.l rng=CheckWater!A172:BZ186 Rdim=3 Cdim=1'
+execute 'gdxxrw.exe Nov30.gdx var=HSIcomp.l rng=CheckWater!A188:BZ201 Rdim=3 Cdim=1'
+execute 'gdxxrw.exe Nov30.gdx  var=HSI_spec.l rng=CheckWater!A137:ZZ153 Rdim=3 Cdim=2'
+
+$offtext
 
 
