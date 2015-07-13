@@ -14,7 +14,7 @@ This repository present 4 main files:
 * Input_Output_Model: GDX files with the input and output data
 * Refuge_Data:LiDar data and Refuge’s documentation
 * SystemModel:GAMS code and input data
-* MatlabScript: Matal code to pre-process paper’s figures
+* MatlabScript: Matlab code to process paper’s figures
 
 ## How to use the model:
 * Install GAMS on your computer and open the GAMS file
