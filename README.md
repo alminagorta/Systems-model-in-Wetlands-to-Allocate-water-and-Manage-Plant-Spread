@@ -11,10 +11,19 @@ The model uses a variety of input data to describe the hydrological, ecological,
 
 ## Documentation:
 This repository present 4 main files: 
-* Input_Output_Model: GDX files with the input and output data
-* Refuge_Data:LiDar data and Refuge’s documentation
-* SystemModel:GAMS code and input data
-* MatlabScript: Matlab code to process paper’s figures
+* [Input_Output_Model]: GDX files with the input and output data
+* [Refuge_Data]:LiDar data and Refuge’s documentation
+* [Scripts for Paper]: Matlab code to process paper’s figures
+* [SystemModel]:GAMS code and input data
+
+
+
+[Input_Output_Model]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Input_Output_Model
+[Refuge_Data]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Refuge_Data
+[Scripts for Paper]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Scripts%20for%20Paper
+[SystemModel]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/SystemModel
+
+
 
 ## How to use the model:
 * Install GAMS on your computer and open the GAMS file
