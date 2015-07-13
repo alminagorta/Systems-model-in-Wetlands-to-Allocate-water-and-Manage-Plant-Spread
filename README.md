@@ -28,7 +28,7 @@ This repository present 4 main files:
 ## How to use the model:
 * Install GAMS on your computer and open the GAMS file
 * Save the Input-Excel file on the same GAMS file
-* Run the GAMS model 
+* Run the GAMS code 
 
 ### Alternative Scenarios:
 The model can perform different scenarios such as:
