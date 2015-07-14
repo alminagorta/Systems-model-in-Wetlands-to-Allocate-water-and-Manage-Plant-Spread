@@ -17,7 +17,7 @@ The model uses a variety of input data to describe the hydrological, ecological,
 
 
 ## Documentation:
-This repository present 4 main files: 
+This repository presents 4 main files: 
 * [Input_Output_Model]: GDX files with the input and output data
 * [Refuge_Data]:LiDar data and Refuge’s documentation
 * [Scripts for Paper]: Matlab code to process paper’s figures
