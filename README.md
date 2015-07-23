@@ -40,7 +40,7 @@ This repository presents 4 main files:
 ### Alternative Scenarios:
 The model can perform different scenarios such as:
 * Changes in water availability: Model allows user to identified the impact of extreme hydrological events on wetland performance (parameter inflow in the input data)
-*Changes in invasive vegetation cover: User can adjust the initial vegetation cover (parameter Init_CV)
+* Changes in invasive vegetation cover: User can adjust the initial vegetation cover (parameter Init_CV)
 * Changes in budget to reduce invasive vegetation: User can adjust the financial budget (parameter budget) to represent an increase and decrease in the budget to remove invasive vegetation.
 * Changes in invasive vegetation response: Model allows estimating the natural expansions of invasive vegetation over time (parameter vegetation response-vegRes)
 * Simulation: Wetland managers can also use the simulation capabilities to allocate pre-determined volumes of water to particular wetland units to achieve goals such as provide specific water depths in wetland units to provide recreation (hunting) services or control avian diseases like botulism. (activate in the GAMS model the alternative “S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)” )
@@ -49,6 +49,11 @@ The model can perform different scenarios such as:
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 
 [GAMS]: http://www.gams.com/
+
+## Licensing:
+Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]. For alternative licensing arrangements, contact Omar Alminagorta and David E. Rosenberg directly. 
+
+[BSD 3-Clause license]: 
 
 ## Citation:
 Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to improve  the  hydro-ecological  performance  of diked  wetlands, (Under Review to resubmit to Water Resources Research Journal).
