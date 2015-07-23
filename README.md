@@ -1,6 +1,6 @@
 # SWAMPS: [S]ystems model in [W]etlands to [A]llocate water and [M]anage [P]lant [S]pread
 
-We developed a system model to quantify the hydro-ecological performance of diked wetlands and embed this performance into an optimization model to recommend water allocation and invasive vegetation control in wetlands. First, we measure the hydro-ecological performance for wetlands using the habitat suitability approach. Second, we subject model recommendations for water allocations and invasive plant management in wetlands to constraints like water availability, spatial connectivity of wetland units, hydraulic infrastructure capacities, plus financial and time resources available to manage invasive vegetation and water. Third, we applied the model at the Bear River Migratory Bird Refuge, which is the largest wetland complex on the Great Salt Lake, Utah.
+We developed a system model to quantify the hydro-ecological performance of diked wetlands and embed this performance into an optimization model to recommend water allocation and invasive vegetation control in wetlands. First, we measure the hydro-ecological performance for wetlands using the habitat suitability approach. Second, we subject model recommendations for water allocations and invasive plant management in wetlands to constraints like water availability, spatial connectivity of wetland units, hydraulic infrastructure capacities, plus financial and time resources available to manage invasive vegetation and water. Third, we applied the model at the [Bear River Migratory Bird Refuge], which is the largest wetland complex on the Great Salt Lake, Utah.
 The approach demonstrates a framework to develop and apply hydro-ecological performance metrics for wetlands, embed those metrics into an optimization model, and recommend management strategies to improve wetland performance. 
 
 [S]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread 
@@ -9,6 +9,9 @@ The approach demonstrates a framework to develop and apply hydro-ecological perf
 [M]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread 
 [P]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread 
 [S]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread 
+
+[Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
+
 
 
 ## Input and Output of the Model
