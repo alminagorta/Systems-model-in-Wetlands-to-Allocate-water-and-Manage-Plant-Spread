@@ -48,9 +48,8 @@ Steps to Get Started:
 
 1. Install the General Algebraic Modeling System ([GAMS]) version 24.1.3 or more recent.
   1. You can Download from www.gams.com.
-2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the
-GAMS code on the same folder.
-3. Run the GAMS code
+2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the [GAMS code] on the same folder.
+3. Run the [GAMS code]
 
 
 [GAMS]: http://www.gams.com/
