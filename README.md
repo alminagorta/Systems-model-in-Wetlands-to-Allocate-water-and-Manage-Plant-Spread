@@ -20,36 +20,36 @@ The model uses a variety of input data to describe the hydrological, ecological,
    ![alt text](https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/Input_Outputs.png?attachauth=ANoY7cr2gFwb7DInLFJnBZEIWJB3Wg5qIz2I_9nBYZfDz7w04NL31ifLVeu4TzimatuV8ycs-FJPMHzWZKGrQF8xhOMSUExTl7ynxneJL62M3cNOGW4Nkjk-23UJOYWD5mMEvBJjOlMuZlgkmF8rSOYONRV25ZfDh4KBOB4TMX4OspjRBz2d6LR8R69nQqR81C50C3cq96tmkt47FLXJLvV5U7_pKmORp0EpyDKuhvRheMYU9hMYwf7fBOMu9v6aD4jXyqlmY2Wy&attredirects=0 "Logo Title Text 1")
 
 
+The optimization model was programmed using the General Algebraic Modeling System [GAMS] software. We used [Excel] to
+storage the input data and [Matlab] to post-process and graphically display results.
 
 ## Documentation:
 This repository presents 4 main folders: 
 
-* [1.SystemModel]:This folder contains the optimization model code in GAMS and input data in a simple Excel file.
-* [2.Scripts_for_Paper]: Matlab code to process paper’s figures
-* [3.GDX_files]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
-* [4.SupplementaryDocumentation]: This folder contains the LiDar data and Habitat Management Plans of the Refuge.
+* [SystemModel]:This folder contains the optimization model developed in [GAMS] and the input data in a simple Microsoft Excel file.
+* [Scripts_for_Paper]: Matlab code to process paper’s figures
+* [GDX_files]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
+* [SupplementaryDocumentation]: This folder contains the LiDar data and Habitat Management Plans of the Refuge.
 
 
 [GDX]: http://www.gams.com/mccarl/gdxusage
 
 
 
-[1.SystemModel]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/SystemModel
-[2.Scripts_for_Paper]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Scripts%20for%20Paper
-[3.GDX_files]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Input_Output_Model
-[4.SupplementaryDocumentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Refuge_Data
+[SystemModel]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/SystemModel
+[Scripts_for_Paper]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Scripts%20for%20Paper
+[GDX_files]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Input_Output_Model
+[SupplementaryDocumentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/Refuge_Data
 
 
 
 ## How to use the model:
-The optimization model was programmed using the General Algebraic Modeling System [GAMS] software. We used [Excel] to
-storage the input data and [Matlab] to post-process and graphically display results.
 
 Steps to Get Started:
 
 1. Install the General Algebraic Modeling System ([GAMS]) version 24.1.3 or more recent.
-..1. You can Download from www.gams.com.
-2. Download the files contained on the [1.SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the
+  1. You can Download from www.gams.com.
+2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the
 GAMS code on the same folder.
 3. Run the GAMS file
 
@@ -60,21 +60,23 @@ GAMS code on the same folder.
 
 ### Alternative Scenarios:
 The model can perform different scenarios such as:
-* Changes in invasive vegetation response: Model allows estimating the natural expansions of invasive vegetation over time. To modify the invasive vegetation response:
-..* Open the Excel file from the [1.SystemModel] folder and input the percentage of invasive vegetation response into the **vegRes** sheet.Save the Excel input file and then run the GAMS code.
-* Changes in invasive vegetation cover: User can adjust the initial vegetation cover. To modify the initial vegetation cover :
-..* In the Excel file from the [1.SystemModel] folder modify the parameters **Init_CV**. Then run the GAMS code.
-* Changes in budget to reduce invasive vegetation: User can adjust the financial budget (parameter budget) to represent an increase and decrease in the budget to remove invasive vegetation.To modify the budget:
-..* In the Excel file from the [1.SystemModel] folder, modify the parameter **budget**. Then run the GAMS code.
-* Changes in water availability: Model allows user to identified the impact of extreme hydrological events on wetland performance. To modify the inflow :
-..* In the Excel file from the [1.SystemModel] folder, input the discharge data in the **Inflow** sheet. Then run the GAMS code.
-* Simulation: Wetland managers can also use the simulation capabilities to allocate pre-determined volumes of water to particular wetland units to achieve goals such as provide specific water depths in wetland units to provide recreation (hunting) services or control avian diseases like botulism. To modify the invasive vegetation response:
-..* Open the GAMS model from the [1.SystemModel] folder and activate the Equation **“S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)”** in lines XX. Then run the GAMS code.
+* **Changes in invasive vegetation response**: Model allows estimating the natural expansions of invasive vegetation cover over time. To modify the invasive vegetation response:
+  * Open the Excel file from the [SystemModel] folder and input the percentage of invasive vegetation response into the _vegRes_** sheet.Save the Excel input file and then run the GAMS code.
+* Changes in invasive vegetation cover**: User can adjust the initial vegetation cover. To modify the initial vegetation cover :
+  * In the Excel file from the [SystemModel] folder modify the parameters _Init_CV_**. Then run the GAMS code.
+* **Changes in budget to reduce invasive vegetation**: User can adjust the financial budget (parameter budget) to represent an increase and decrease in the budget to remove invasive vegetation.To modify the budget:
+  * In the Excel file from the [SystemModel] folder, modify the parameter _budget_**. Then run the GAMS code.
+* **Changes in water availability**: Model allows user to identified the impact of extreme hydrological events on wetland performance. To modify the inflow :
+  * In the Excel file from the [SystemModel] folder, input the discharge data in the _Inflow_** sheet. Then run the GAMS code.
+* **Simulation**: Wetland managers can also use the simulation capabilities to allocate pre-determined volumes of water to particular wetland units to achieve goals such as provide specific water depths in wetland units to provide recreation (hunting) services or control avian diseases like botulism. To modify the invasive vegetation response:
+  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_** in lines 696 on the [GAMS code]. Then run the GAMS code.
 
 
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 
 [GAMS]: http://www.gams.com/
+[GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/SWAMPS_model_GAMS_code_v1.2.gms
+
 
 ## Licensing:
 Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]. For alternative licensing arrangements, contact Omar Alminagorta and David E. Rosenberg directly. 
