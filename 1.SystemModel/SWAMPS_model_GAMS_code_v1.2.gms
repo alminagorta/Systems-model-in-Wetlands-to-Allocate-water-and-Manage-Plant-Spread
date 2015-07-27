@@ -6,15 +6,15 @@ Created by Omar Alminagorta, Utah State University.
 Updated July 2015 - Version 1.1
 
 The model recommends water allocation and invasive vegetation removal to improve the wetland performance
-Model is applied to 25 wetland units at the Bear River Migratory Bird Refuge
+Model is applied to 25 wetland units at the Bear River Migratory Bird Refuge.
+
 --------------------------
 *For Simulation
-     Activate Eq. :  S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu) ;
+     Activate Eq. :  "S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)"
+
 *For Gate Constraints
-     Activate  4 Eqs.of gate management [search for '%%%%%%']
-     Activate the equations itself
-*For Vegetation response
-     Activate the Eq. :   (VegResp(mn)*InitCV_iv2(yr,mn,dy,wu))
+     Activate :
+             "Solve GateConstraint  MAXIMIZING Obj USING NLP"
 
 ---------------------------
 
@@ -52,7 +52,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 
 $Offtext
 
@@ -145,16 +144,11 @@ $CALL GDXXRW.EXE BRMBR_Simulationv21.xls Set=i rng=nodes!A1:A500 Rdim=1  Set=spe
 
 
 
-*I added   par=wu_ts_data2  rng=Init_CV!A1 Rdim=1 Cdim=1
-*          par=wu_ts_data3  rng=Init_Stor!A1 Rdim=1 Cdim=1
 SET links(i,j)  link from i to j ;
 Parameter jn_ts_data(yr,mn,dy,jn_ts_par,jn) ;
 Parameter wu_ts_data(yr,mn,dy,wu_ts_par,wu) ;
-
-*%%%%%%%%%%%%%%%%May-2015
 Parameter wu_ts_data2(wu,wu_ts_par) ;
 Parameter wu_ts_data3(wu,wu_ts_par) ;
-*%%%%%%%%%%%%%%%%%%%
 Parameter Out_par_data(Out,Out_par_par);
 Parameter wu_par_data(wu,wu_par_par);
 Parameter link_par_data(i,j,link_par_par) ;
@@ -225,7 +219,6 @@ $LOAD   PHV1
 $LOAD   PHV2
 $LOAD   PHV3
 $LOAD   PHV4
-*%%%%%%%%%%%%  May-2015 _Init_CV
 $LOAD    wu_ts_data2
 $LOAD    wu_ts_data3
 
@@ -253,10 +246,6 @@ Parameter Inflow(yr,mn,dy,i) inflow   ;
           Inflow(yr,mn,dy,wu) =  WU_ts_data(yr,mn,dy,"Inflow",wu) ;
           Inflow(yr,mn,dy,jn) =  JN_ts_data(yr,mn,dy,"Inflow",jn) ;
 
-*Parameter initStor(yr,mn,dy,i) initial storage at wetland  ;
-*          initStor(yr,mn,dy,wu) =  WU_ts_data(yr,mn,dy,"InitialStor",wu) ;
-
-*%%%%%%%%%%%%  May-2015
 Parameter initStor2(i) initial storage at wetland ha-m) ;
           initStor2(wu) =  wu_ts_data3(wu,"InitialStor") ;
 
@@ -289,8 +278,6 @@ Parameter MaxOut(i) parameter with max flow at the outflow  ;
 Parameter MinOut(i) parameter with max flow at the outflow  ;
           MinOut(Out) = Out_par_data(Out,"MinQu") ;
 
-*Parameter InitCV_iv(yr,mn,dy,i) initial coverage vegetation (%)  ;
-*          InitCV_iv(yr,mn,dy,wu) =  wu_ts_data(yr,mn,dy,"InitCViv",wu) ;
 
 *%%%%%%%%%%%%  May-2015
 Parameter InitCV_iv2(i) initial coverage vegetation (%)  ;
@@ -331,7 +318,7 @@ Parameter EE(wu,mn) third parameter Quadratic Eq. to estimate Area;
 VARIABLES
 
 *Variables related with mass balance
-      Q (yr,mn,dy,i,j)              Volume of flow from node i to j during period yr-mn-dy  - cubic hectometre (Ha m3 per month)
+      Q (yr,mn,dy,i,j)              Volume of flow from node i to j during period yr-mn-dy  -(Ha-m per month)
       S  (yr,mn,dy,i)               Storage wetland units(Ha-m)
       delivery(yr,mn,dy,i)          Delivery into each wetland unit ( Ha-m)
       R  (yr,mn,dy,i)               Releases from node upstream (Ha-m)
@@ -358,8 +345,8 @@ VARIABLES
 
 ***    HSI_UnitManag(yr,mn,dy,wu,spec)
 *Compilation
-      HSIcomp(yr,mn,dy,i)          Combining both HSI hydrological and CVegetation(adimensional)
-      WUAW(yr,mn,dy,i)        Weight Usable Area for Wetland and by species (m2)  estimated with analytical functions
+      HSIcomp(yr,mn,dy,i)      Combining both HSI hydrological and CVegetation(adimensional)
+      WUAW(yr,mn,dy,i)         Weight Usable Area for Wetland and by species (m2)  estimated with analytical functions
 *      WUAW2(yr,mn,dy,i)       Weight Usable Area for Wetland and by species (m2)  estimated with interpolation
       Obj                      Objective Function (m2)
 
@@ -380,18 +367,18 @@ EQUATIONS
 
 *Eq related with mass balance
      EqMassBalNonStor(yr,mn,dy,i)  Mass Balance at nonstorage nodes
-     EqMassBalNonStor_Out(yr,mn,dy,Out)  Outflow at Great Salt Lake
+     EqMassBalNonStor_Out(yr,mn,dy,Out)  Outflow to the Great Salt Lake
      EqMassBal_WU(yr,mn,dy,i)      Mass Balance at wetland units
      EqMaxQ(yr,mn,dy,i,j)          Maximun flow at canals
      EqMinQ(yr,mn,dy,i,j)          Minimun flow at canals
      EqMaxStor(yr,mn,dy,i)         Maximun storage at wetland units
      EqMinStor(yr,mn,dy,i)         Minimun storage at wetland units
-     EqEvap(yr,mn,dy,wu)           Estimation of Evaporatio
+     EqEvap(yr,mn,dy,wu)           Estimation of Evaporation
      EqDelivery(yr,mn,dy,i)
      EqRelease(yr,mn,dy,i)
 *Eq related with Habitat and Cover Vegetation
      EqRemovedCV(yr,mn,dy,i)       Eq to estimate invasive cover vegetation that is removed
-     EqCost                        Cost of management of cover vegetation (use that when I have unique budget but dynamic unit cost)
+     EqCost                        Cost of management of cover vegetation
      EqHSI_CVinv(yr,mn,dy,i)       Eq to estimate HSI for especific Cover Vegetation
      EqHSI_CVinv2(yr,mn,dy,wu)     Eq to test HSI=1
      EqBud(yr,mn,dy,wu)            Budget per month and wu
@@ -407,14 +394,14 @@ EQUATIONS
      EqArea(yr,mn,dy,i)            Eq to estimate the flood Area
 
 *these equations only for gate operation.
-$ontext
+*$ontext
 *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      EqGateActRelease (yr,mn,dy,wu) Eq to identify changes in release (positive and negatives)
      EqGateActDeliv(yr,mn,dy,wu)    Eq to identify changes in delivery (Just negatives)
      EqGateAct2(yr,mn,dy)          Eq to identify the sum of gates release and delivery
      EqGateAct3(yr,mn,dy)          Eq to limit to available gates
 *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-$offtext
+*$offtext
 
 ***     EqHSI_UnitManag(yr,mn,dy,wu,spec)
 *Compilation
@@ -431,15 +418,14 @@ $offtext
 * Gate Management
 *------------------------------------
 *Use this
-$ontext
+*$ontext
 *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 * Incorporating Management of Gates for wetland units .
-* After test 7 approaches evaluated and that the best perfomcenace was
-*This model Eq. Arcotang Equa(x,A,B,k2,x0) = (B-A)/(2)*(arctan((x-x0)/k2)/(0.5*PI)+1)+A
-* with the follow parameter:  xo = 1.5 (1.5 Ha-m represent a loss of water)  and K2= 0.01 (steep slope); A-B range between 0 and 1
+* After test 7 different approaches  the best performance was the Arcotang approach, described on the Paper
+* Arcotang Equa(x,A,B,k2,x0) = (B-A)/(2)*(arctan((x-x0)/k2)/(0.5*PI)+1)+A
 
-*Here estimate the number of times that water release from wu to specific node
+*Release
 EqGateActRelease(yr,mn,dy,wu)$(ord(yr) EQ 1 and ord(mn)GT 1)..
 
                   GateActRelease(yr,mn,dy,wu) =e=   (1)/(2)*(arctan(((R(yr,mn,dy,wu) - R(yr,mn-1,dy,wu)$(ord(mn)GT 1))-1.5)/0.01)/(pi/2)+1) +
@@ -473,26 +459,16 @@ EqGateAct2(yr,mn,dy)..
                                GateAct(yr,mn,dy)=e= SUM((wu), GateActRelease(yr,mn,dy,wu)+ GateActDeliv(yr,mn,dy,wu))   ;
 
 
-*^                                 GateAct(yr,mn,dy)=e= SUM((wu), GateActRelease(yr,mn,dy,wu))   ;
 
 
-* Use this if I want to constraint for month of gates management (not for total).
+* Gates management.
 EqGateAct3 (yr,mn,dy)..
 
                                 GateAct(yr,mn,dy) =l=  AvalGateAct(mn) ;
 
 
-
-* Use this if I want to constraint for the total number of gates management . (not month by month)
-
-**EqGateAct3..
-**                                  sum((yr,mn,dy),(GateAct(yr,mn,dy))) =l=  sum(mn,AvalGateAct(mn)) ;
-*Use this for simulation
-****                              sum((yr,mn,dy),(GateAct(yr,mn,dy))) =l= sum(mn,AvalGateAct(mn)) ;
-
-*Here is the offtext
 *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-$offtext
+*$offtext
 
 
 *------------------------------------
@@ -666,8 +642,8 @@ EqHSI_CVinv(yr,mn,dy,wu)..  HSI_CVinv(yr,mn,dy,wu) =e=
 
 *Seeting the functionn : ((A-D)/(1+((x/C)^B))) + D
 * A = minimum asymptote.
-* B = slope factor related to the steepness of the curve. It could either be positive or negative.
-* C = inflection point. The inflection point is where the curve changes from being concave upwards to concave downwards
+* B = slope factor related to the steepness of the curve.
+* C = inflection point.
 * D = maximum asymptote.
 
 
@@ -714,7 +690,7 @@ EqWUAW(yr,mn,dy,stor)..
 *--------------------------------------------------------------------------------------------------------------------------
 
 *-------------------------
-*Use This for simulation
+*Used for simulation
 *-------------------------
 
 *^S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu) ;
@@ -733,8 +709,9 @@ ObjectiveFunction..
 
 *MOdel Nov30 /all/
 Model Nov30 original version  /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
-*Model Nov30 Adding HSI_CV=1/EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv2,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
-*Model Nov30 original version with gates /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqGateActRelease,EqGateActDeliv,EqGateAct2,EqGateAct3,EqHSIcomp,EqWUAW,ObjectiveFunction/;
+*Typically Gate constraint scenario can take more time (around 40 min if we constraint to 4 gates per month)
+Model GateConstraint original version with gates contraint /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqGateActRelease,EqGateActDeliv,EqGateAct2,EqGateAct3,EqHSIcomp,EqWUAW,ObjectiveFunction/;
+*Model TestingCV1 Adding HSI_CV=1/EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv2,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
 
 
 
@@ -746,8 +723,9 @@ option profile=3 ;
 
 option reslim = 5000000
 
-
 Solve Nov30  MAXIMIZING Obj USING NLP ;
+*Solve GateConstraint  MAXIMIZING Obj USING NLP ;
+
 
 Display Obj.l,  S.m  ;
 
@@ -765,7 +743,7 @@ HSI_CVinv, InitCV_iv2,CVinvasive,RemovedCV, HSI_CVinv,Bud
 ,EqMassBalNonStor_Out,
 HSIcomp,
 HSI_spec
-*execute 'gdxxrw.exe Nov30.gdx par=Inflow.l rng=CheckWater!A1:AZ14  par=initStor.l rng=CheckWater!A16:AZ29  var=Q.l rng=CheckWater!A31:AZ45 Rdim=3 SQ=N   var=S.l rng=CheckWater!A62:AZ75      var=Area.l rng=CheckWater!A107:AZ120 Rdim=3 SQ=N  '
+
 execute 'gdxxrw.exe Nov30.gdx par=InitCV_iv2.l rng=CheckCV!D1:ZZ14 Cdim=1  SQ=N  var=RemovedCV.l rng=CheckCV!A16:ZZ29 SQ=N   var=CVinvasive.l rng=CheckCV!A31:ZZ44 var=Bud.l rng=CheckCV!A46:ZZ59  SQ=N var=HSI_CVinv.l rng=CheckCV!A61:ZZ74 Rdim=3 SQ=N  par=TotalArea.l rng=CheckCV!A77:ZZ107 Cdim=1  par=MaxStor.l rng=CheckCV!A82:ZZ107 Cdim=1'
 
 *execute 'gdxxrw.exe Nov30.gdx var=HSI_WD2.l rng=HSI_WD! '
