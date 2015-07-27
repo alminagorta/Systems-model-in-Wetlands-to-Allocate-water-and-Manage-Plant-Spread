@@ -51,7 +51,7 @@ Steps to Get Started:
   1. You can Download from www.gams.com.
 2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the
 GAMS code on the same folder.
-3. Run the GAMS file
+3. Run the GAMS code
 
 
 [GAMS]: http://www.gams.com/
@@ -62,14 +62,14 @@ GAMS code on the same folder.
 The model can perform different scenarios such as:
 * **Changes in invasive vegetation response**: Model allows estimating the natural expansions of invasive vegetation cover over time. To modify the invasive vegetation response:
   * Open the Excel file from the [SystemModel] folder and input the percentage of invasive vegetation response into the _vegRes_** sheet.Save the Excel input file and then run the GAMS code.
-* Changes in invasive vegetation cover**: User can adjust the initial vegetation cover. To modify the initial vegetation cover :
-  * In the Excel file from the [SystemModel] folder modify the parameters _Init_CV_**. Then run the GAMS code.
+* **Changes in invasive vegetation cover**: User can adjust the initial vegetation cover. To modify the initial vegetation cover :
+  * In the Excel file from the [SystemModel] folder modify the parameters _Init_CV_. Then run the GAMS code.
 * **Changes in budget to reduce invasive vegetation**: User can adjust the financial budget (parameter budget) to represent an increase and decrease in the budget to remove invasive vegetation.To modify the budget:
-  * In the Excel file from the [SystemModel] folder, modify the parameter _budget_**. Then run the GAMS code.
+  * In the Excel file from the [SystemModel] folder, modify the parameter _budget_. Then run the GAMS code.
 * **Changes in water availability**: Model allows user to identified the impact of extreme hydrological events on wetland performance. To modify the inflow :
-  * In the Excel file from the [SystemModel] folder, input the discharge data in the _Inflow_** sheet. Then run the GAMS code.
+  * In the Excel file from the [SystemModel] folder, input the discharge data in the _Inflow_ sheet. Then run the GAMS code.
 * **Simulation**: Wetland managers can also use the simulation capabilities to allocate pre-determined volumes of water to particular wetland units to achieve goals such as provide specific water depths in wetland units to provide recreation (hunting) services or control avian diseases like botulism. To modify the invasive vegetation response:
-  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_** in lines 696 on the [GAMS code]. Then run the GAMS code.
+  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_ in lines 696 on the [GAMS code]. Then run the GAMS code.
 
 
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
