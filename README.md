@@ -51,7 +51,7 @@ Steps to Get Started:
 
 1. Install the General Algebraic Modeling System ([GAMS]) version 24.1.3 or more recent.
   1. You can Download from www.gams.com.
-2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the [GAMS code] on the same folder.
+2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-xls file and the [GAMS code] on the same folder.
 3. Run the [GAMS code]
 
 
@@ -62,7 +62,7 @@ Steps to Get Started:
 ### Alternative Scenarios:
 The model can perform different scenarios such as:
 * **Changes in invasive vegetation response**: Model allows estimating the natural expansions of invasive vegetation cover over time. To modify the invasive vegetation response:
-  * Open the Excel file from the [SystemModel] folder and input the percentage of invasive vegetation response into the _vegRes_** sheet.Save the Excel input file and then run the GAMS code.
+  * Open the Excel file from the [SystemModel] folder and input the percentage of invasive vegetation response into the _vegRes_ sheet.Save the Excel input file and then run the [GAMS code].
 * **Changes in invasive vegetation cover**: User can adjust the initial vegetation cover. To modify the initial vegetation cover :
   * In the Excel file from the [SystemModel] folder modify the parameters _Init_CV_. Then run the GAMS code.
 * **Changes in budget to reduce invasive vegetation**: User can adjust the financial budget (parameter budget) to represent an increase and decrease in the budget to remove invasive vegetation.To modify the budget:
