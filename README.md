@@ -50,9 +50,10 @@ This repository presents 4 main folders:
 Steps to Get Started:
 
 1. Install the General Algebraic Modeling System ([GAMS]) version 24.1.3 or more recent.
-  1. You can Download from www.gams.com.
-2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-xls file and the [GAMS code] on the same folder.
-3. Run the [GAMS code]
+  1. You can download from www.gams.com.
+  2. Make sure that your computer has Microsoft [Excel] and [Matlab] (R2013a or more recent)
+2. Download the folders contained on this GitHub repository. 
+3. Open the [GAMS code] in the folder [SystemModel] and run the model
 4. The GAMS script will generate a report with the model outputs. To display graphical results from the GAMS code, run the Matlab code "Generation_of_Figures"
 
 For more details, see this video about how to start using the SWAMPS model.
