@@ -39,22 +39,80 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 close all; clear all; clc;
-I=imread('units.tif');
+I=imread('units2.tif');
 Igrey=rgb2gray(I);
-
-%First identify the coordenates x,y,z
 W=Igrey(:,300:350);
-% Identify the value (162) and reemplaze (170)
 iq=W==162;
 W(iq)=170;
 Igrey(:,300:350)=W;
 
-U=dataset('xlsfile','unit.xlsx');
+%9.1.3 Reading excell between number of map and Units name
+U=dataset('xlsfile','unit2.xlsx');
 ID1=U.Values;
 Name2=U.Unit;
 x=U.X;
 y=U.Y;
 
+%HSI composed :Using Dataset,Output 
+HSI_comp=dataset('xlsfile','PlotFunctionsPaper.xlsx','sheet','HSIcomp','range','A1:E300','ReadVarNames','off');
+
+%Selecting colums 
+Umonth1=nominal(HSI_comp.Var2);
+UName2=HSI_comp.Var4;
+HSIspec1=HSI_comp.Var5;
+%To set names to the plot (missing to incorporate)
+monthName={'Jan'  'Feb'  'Mar'  'Apr'  'May'  'Jun'  'Jul'  'Aug'  'Sep'  'Oct'  'Nov'  'Dec'};
+
+% Analyzing month by month and for one species
+figure('Name','HSI_Composed_Map','units','normalized','outerposition',[0 0 1 1]);
+set(gca,'Color','w');
+set(gcf,'Color','w')
+for j=1:12
+ind1=(Umonth1==num2str(j));
+%Selecting unit and values based on index1
+uName2=UName2(ind1);
+uResults3=HSIspec1(ind1); 
+
+%Intersection of Units between Map Code and Values of GAMS 
+[cName, iOr2, iuu2] = intersect(Name2,uName2);
+Rmon1=uResults3(iuu2);
+u1m=zeros(size(ID1));
+%Getting only map of the results
+u1m(iOr2)=Rmon1;
+Igreym=NaN(size(Igrey));
+for i=1:length(cName);
+    inde=find(Igrey==ID1(iOr2(i)));
+Igreym(inde)=Rmon1(i);
+end
+subplot(4,3,j); 
+% To map the results
+   mesh(flipud(Igreym));
+    %colormap(pink);
+    colormap(flipud(pink));
+     view(2)
+ xlim([50 400]) ;
+ylim([0 250]);
+axis off;
+title([monthName(j)],'FontSize',14,'FontName','Times New Roman');
+hold on ;
+contour (flipud(Igrey),'Color','k','LineWidth',0.8);
+   alpha(0.3);
+
+whitebg('w')
+set(gca,'Color','w');
+set(gcf,'Color','w')
+
+axis fill
+clim=[0 1]; % Data range...
+  caxis(clim);
+if j==1,
+h=colorbar;
+  set(h,'position',[ 0.0921339998649555 0.104437593984962 0.01219 0.815],'AxisLocation','in',...
+    'FontSize',14,...
+    'FontName','Times New Roman');
+end
+
+end
 
 % Create textbox
 annotation('textbox',...

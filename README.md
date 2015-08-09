@@ -25,7 +25,7 @@ The optimization model was programmed using the General Algebraic Modeling Syste
 ## Documentation:
 This repository presents 4 main folders: 
 
-* [SystemModel]:This folder contains the optimization model developed in [GAMS] and the input data in a simple Microsoft Excel file.
+* [SystemModel]:This folder contains the optimization model developed in [GAMS], the input data in a simple Microsoft Excel file named "BRMBR_Input" and a Matlab code ("Generation_of-Figures") to graphically display results of the model.
 * [Scripts_for_Paper]: Matlab code to process paper’s figures
 * [GDX_files]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
 * [SupplementaryDocumentation]: This folder contains the LiDar data and Habitat Management Plans of the Refuge.
@@ -53,7 +53,9 @@ Steps to Get Started:
   1. You can Download from www.gams.com.
 2. Download the files contained on the [SystemModel] folder from the GitHub repository. Make sure to save the Input-Excel file and the [GAMS code] on the same folder.
 3. Run the [GAMS code]
+4. The GAMS script will generate a report with the model outputs. To display graphical results from the GAMS code, run the Matlab code "Generation_of_Figures"
 
+For more details, see this video about how to start using the SWAMPS model.
 
 [GAMS]: http://www.gams.com/
 [Excel]: https://products.office.com/en-us/excel
@@ -70,8 +72,9 @@ The model can perform different scenarios such as:
 * **Changes in water availability**: Model allows user to identified the impact of extreme hydrological events on wetland performance. To modify the inflow :
   * In the Excel file from the [SystemModel] folder, input the discharge data in the _Inflow_ sheet. Then run the GAMS code.
 * **Simulation**: Wetland managers can also use the simulation capabilities to allocate pre-determined volumes of water to particular wetland units to achieve goals such as provide specific water depths in wetland units to provide recreation (hunting) services or control avian diseases like botulism. To modify the invasive vegetation response:
-  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_ in lines 696 on the [GAMS code]. Then run the GAMS code.
+  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_ in the [GAMS code]. Save it and then run the GAMS code.
 
+For more information,follow further instructions in the Excel input file. 
 
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 

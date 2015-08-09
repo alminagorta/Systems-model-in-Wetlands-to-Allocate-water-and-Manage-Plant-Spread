@@ -9,7 +9,16 @@ Updated July 2015 - Version 1.1
 The model recommends water allocation and invasive vegetation removal to improve the wetland performance
 Model is applied to 25 wetland units at the Bear River Migratory Bird Refuge.
 
---------------------------
+-------------------------------------------------------------------------------
+How to use it:
+
+Input: The model uses an excel file "BRMBR_Input" to input data
+Output: After run the GAMS code, the model will generate a report results and a GDX file ("Result.gdx").
+       To graphically display results we can also use the matlab file "Generation_of_Figures"
+
+-------------------------------------------------------------------------------
+Things to notice:
+
 *For Simulation
      Activate Eq. :  "S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)"
 
@@ -17,7 +26,7 @@ Model is applied to 25 wetland units at the Bear River Migratory Bird Refuge.
      Activate :
              "Solve GateConstraint  MAXIMIZING Obj USING NLP"
 
----------------------------
+-------------------------------------------------------------------------------
 
 If you use the model or part of the code, cite as:
 
@@ -141,7 +150,7 @@ Typ3
 *To import data from excel
 *=================================================
 
-$CALL GDXXRW.EXE BRMBR_Simulationv21.xls Set=i rng=nodes!A1:A500 Rdim=1  Set=spec rng=BirdSpec!A1:A500 Rdim=1  Set=k rng=StepStorWD!A1 Rdim=1   Set=p rng=StepCV!A1:A500 Rdim=1   Set=yr rng=yr!A1:A500 Rdim=1   Set=mn rng=mn!A1:A500 Rdim=1   Set=dy rng=dy!A1:A500 Rdim=1   set=jn rng=junction!A1:A500 Rdim=1  set=wu rng=wu!A1:A500 Rdim=1   set=Out rng=Out!A1:A500 Rdim=1  set=links rng=links!A1:B500 Rdim=2  par=jn_ts_data  rng=Inflow!A1 Rdim=3 Cdim=2    par=wu_ts_data  rng=Table!A1 Rdim=3 Cdim=2   par=Out_par_data  rng=out_data!A1 Rdim=1 Cdim=1   par=wu_par_data  rng=wu_data!A1 Rdim=1 Cdim=1      par=wu_tab_Water_data   rng=hydro!A1 Rdim=3 Cdim=1    par= wu_tab_Water_HSI_data1 rng=HSI_hydro!A1 Rdim=3 Cdim=1      par= wu_tab_CV_invas_data  rng=cv!A1  Rdim=2 Cdim=1    par=wu_tab_CV_HSI_data  rng=HSI_cv!A1  Rdim=2 Cdim=1    par= link_par_data  rng=link_data!A1  Rdim=2 Cdim=1     par=Connect  rng=link!A1  Rdim=1 Cdim=1    par=LossEvapo rng=evap!A1 Rdim=1     Set=dem rng=demStor!A1 Rdim=1   par=DemandStor rng=Demd!A1   Rdim=4 Cdim=1   par=ParametCurve   rng=Param!A1 Rdim=2 Cdim=1    par=UnitMang rng=Um!A1 Rdim=2 Cdim=1   par=VegMag rng=vegm!A1 Rdim=1    par=UnitCost rng=unitc!A1 Rdim=1    par=VegResp rng=vegRes!A1 Rdim=1   par=AvalGateAct rng=avalGate!A1 Rdim=1   par=B rng=budget!A1 Rdim=0   par=specweight rng=specWeight!A1 Rdim=1 Cdim=1   par=PHW1 rng=Param_HW!B2 Rdim=0   par=PHW2 rng=Param_HW!C2 Rdim=0   par=PHW3 rng=Param_HW!D2 Rdim=0   par=PHW4 rng=Param_HW!E2 Rdim=0   par=PHW5 rng=Param_HW!F2 Rdim=0   par=PHW6 rng=Param_HW!G2 Rdim=0   par=PHW7 rng=Param_HW!H2 Rdim=0   par=PHV1 rng=Param_HV!B2 Rdim=0   par=PHV2 rng=Param_HV!C2 Rdim=0   par=PHV3 rng=Param_HV!D2 Rdim=0   par=PHV4 rng=Param_HV!E2 Rdim=0   par=wu_ts_data2  rng=Init_CV!A1 Rdim=1 Cdim=1  par=wu_ts_data3  rng=Init_Stor!A1 Rdim=1 Cdim=1
+$CALL GDXXRW.EXE BRMBR_Input.xls Set=i rng=nodes!A1:A500 Rdim=1  Set=spec rng=BirdSpec!A1:A500 Rdim=1  Set=yr rng=yr!A1:A500 Rdim=1   Set=mn rng=mn!A1:A500 Rdim=1   Set=dy rng=dy!A1:A500 Rdim=1   set=jn rng=junction!A1:A500 Rdim=1  set=wu rng=wu!A1:A500 Rdim=1   set=Out rng=Out!A1:A500 Rdim=1  set=links rng=links!A1:B500 Rdim=2  par=jn_ts_data  rng=Inflow!A1 Rdim=3 Cdim=2    par=wu_ts_data  rng=Table!A1 Rdim=3 Cdim=2   par=Out_par_data  rng=out_data!A1 Rdim=1 Cdim=1   par=wu_par_data  rng=wu_data!A1 Rdim=1 Cdim=1    par= link_par_data  rng=link_data!A1  Rdim=2 Cdim=1     par=Connect  rng=link!A1  Rdim=1 Cdim=1    par=LossEvapo rng=evap!A1 Rdim=1     Set=dem rng=demStor!A1 Rdim=1   par=DemandStor rng=Demd!A1   Rdim=4 Cdim=1   par=ParametCurve   rng=Param!A1 Rdim=2 Cdim=1    par=UnitMang rng=Um!A1 Rdim=2 Cdim=1   par=VegMag rng=vegm!A1 Rdim=1    par=UnitCost rng=unitc!A1 Rdim=1    par=VegResp rng=vegRes!A1 Rdim=1   par=AvalGateAct rng=avalGate!A1 Rdim=1   par=B rng=budget!A1 Rdim=0   par=specweight rng=specWeight!A1 Rdim=1 Cdim=1   par=PHW1 rng=Param_HW!B2 Rdim=0   par=PHW2 rng=Param_HW!C2 Rdim=0   par=PHW3 rng=Param_HW!D2 Rdim=0   par=PHW4 rng=Param_HW!E2 Rdim=0   par=PHW5 rng=Param_HW!F2 Rdim=0   par=PHW6 rng=Param_HW!G2 Rdim=0   par=PHW7 rng=Param_HW!H2 Rdim=0   par=PHV1 rng=Param_HV!B2 Rdim=0   par=PHV2 rng=Param_HV!C2 Rdim=0   par=PHV3 rng=Param_HV!D2 Rdim=0   par=PHV4 rng=Param_HV!E2 Rdim=0   par=wu_ts_data2  rng=Init_CV!A1 Rdim=1 Cdim=1  par=wu_ts_data3  rng=Init_Stor!A1 Rdim=1 Cdim=1
 
 
 
@@ -180,7 +189,7 @@ Scalar PHV3;
 Scalar PHV4;
 
 
-$GDXIN BRMBR_Simulationv21.gdx
+$GDXIN BRMBR_Input.gdx
 $LOAD   i
 $LOAD   spec
 $LOAD   yr
@@ -280,7 +289,7 @@ Parameter MinOut(i) parameter with max flow at the outflow  ;
           MinOut(Out) = Out_par_data(Out,"MinQu") ;
 
 
-*%%%%%%%%%%%%  May-2015
+*%%%%%%%%%%%%
 Parameter InitCV_iv2(i) initial coverage vegetation (%)  ;
           InitCV_iv2(wu) =  wu_ts_data2(wu,"InitCViv") ;
 
@@ -535,12 +544,12 @@ WDepth.lo(yr,mn,dy,wu)=0;
 
 
 *$ontext
-* Estimating the Delivery to each wetland unit (from j to wu)
+* Estimating the Delivery to each wetland unit
 EqDelivery(yr,mn,dy,wu)..
          delivery(yr,mn,dy,wu) =E= SUM(j$Connect(j,wu), Q(yr,mn,dy,j,wu))
                                  + Inflow(yr,mn,dy,wu)  ;
 
-* Estimating the Releases to nonstorage nodes  (from i to j)
+* Estimating the Releases to nonstorage nodes
 EqRelease(yr,mn,dy,i)$stor(i)..
           R(yr,mn,dy,i)=e= SUM(j$Connect(i,j), Q(yr,mn,dy,i,j)) ;
 
@@ -730,42 +739,29 @@ Solve Nov30  MAXIMIZING Obj USING NLP ;
 
 Display Obj.l,  S.m  ;
 
-
-
-$ontext
-execute_unload "Nov30.gdx" S,
+*$ontext
+execute_unload "Result.gdx" S,
 WUAW,Area,initStor2,Inflow,
 TotalArea,MaxStor,
 WDepth
-*,ROW_Hydro2
-*,lossEvap,HSI_WD3
-
 HSI_CVinv, InitCV_iv2,CVinvasive,RemovedCV, HSI_CVinv,Bud
 ,EqMassBalNonStor_Out,
 HSIcomp,
 HSI_spec
 
-execute 'gdxxrw.exe Nov30.gdx par=InitCV_iv2.l rng=CheckCV!D1:ZZ14 Cdim=1  SQ=N  var=RemovedCV.l rng=CheckCV!A16:ZZ29 SQ=N   var=CVinvasive.l rng=CheckCV!A31:ZZ44 var=Bud.l rng=CheckCV!A46:ZZ59  SQ=N var=HSI_CVinv.l rng=CheckCV!A61:ZZ74 Rdim=3 SQ=N  par=TotalArea.l rng=CheckCV!A77:ZZ107 Cdim=1  par=MaxStor.l rng=CheckCV!A82:ZZ107 Cdim=1'
+execute 'gdxxrw.exe Result.gdx par=InitCV_iv2.l rng=CheckCV!D1:ZZ14 Cdim=1  SQ=N  var=RemovedCV.l rng=CheckCV!A16:ZZ29 SQ=N   var=CVinvasive.l rng=CheckCV!A31:ZZ44 var=Bud.l rng=CheckCV!A46:ZZ59  SQ=N var=HSI_CVinv.l rng=CheckCV!A61:ZZ74 Rdim=3 SQ=N  par=TotalArea.l rng=CheckCV!A77:ZZ107 Cdim=1  par=MaxStor.l rng=CheckCV!A82:ZZ107 Cdim=1'
+execute 'gdxxrw.exe Result.gdx var=ROW_Hydro.l rng=ROW_Water!'
+execute 'gdxxrw.exe Result.gdx var=WUAW2.l rng=WUAW2! Rdim=4 '
+execute 'gdxxrw.exe Result.gdx var=HSIcomp.l rng=HSIcomp! Rdim=4'
+execute 'gdxxrw.exe Result.gdx par=Inflow.l rng=CheckWater!A1:AZ14 '
+execute 'gdxxrw.exe Result.gdx par=initStor2.l rng=CheckWater!D16:AZ29  SQ=N  '
+execute 'gdxxrw.exe Result.gdx  var=S.l rng=CheckWater!A21:AZ34      '
+execute 'gdxxrw.exe Result.gdx  var=WDepth.l rng=CheckWater!A36:AZ49   '
+execute 'gdxxrw.exe Result.gdx  var=Area.l rng=CheckWater!A51:AZ64 Rdim=3 SQ=N   '
+execute 'gdxxrw.exe Result.gdx  var=HSI_CVinv.l rng=CheckWater!A69:BZ82 Rdim=3 Cdim=1'
+execute 'gdxxrw.exe Result.gdx var=WUAW.l rng=CheckWater!A86:BZ99 Rdim=3 Cdim=1'
+execute 'gdxxrw.exe Result.gdx  var=HSI_spec.l rng=CheckWater!A137:ZZ153 Rdim=3 Cdim=2'
 
-*execute 'gdxxrw.exe Nov30.gdx var=HSI_WD2.l rng=HSI_WD! '
-execute 'gdxxrw.exe Nov30.gdx var=ROW_Hydro.l rng=ROW_Water!'
-
-*execute 'gdxxrw.exe Nov30.gdx var=ROW_Hydro2.l rng=ROW_Water2!'
-
-execute 'gdxxrw.exe Nov30.gdx var=WUAW2.l rng=WUAW2! Rdim=4 '
-*execute 'gdxxrw.exe Nov30.gdx  var=HSI_CVinv.l rng=HSI_CV! Rdim=3 Cdim=1'
-*execute 'gdxxrw.exe Nov30.gdx var=WDepth.l rng=WDepth!'
-execute 'gdxxrw.exe Nov30.gdx par=Inflow.l rng=CheckWater!A1:AZ14 '
-execute 'gdxxrw.exe Nov30.gdx par=initStor2.l rng=CheckWater!D16:AZ29  SQ=N  '
-execute 'gdxxrw.exe Nov30.gdx  var=S.l rng=CheckWater!A62:AZ75      '
-execute 'gdxxrw.exe Nov30.gdx  var=WDepth.l rng=CheckWater!A77:AZ90   '
-execute 'gdxxrw.exe Nov30.gdx  var=Area.l rng=CheckWater!A122:AZ135 Rdim=3 SQ=N   '
-execute 'gdxxrw.exe Nov30.gdx  var=HSI_WD3.l rng=CheckWater!A137:BZ153 Rdim=3 Cdim=2  SQ=N '
-execute 'gdxxrw.exe Nov30.gdx  var=HSI_CVinv.l rng=CheckWater!A155:BZ170 Rdim=3 Cdim=1'
-execute 'gdxxrw.exe Nov30.gdx var=WUAW.l rng=CheckWater!A172:BZ186 Rdim=3 Cdim=1'
-execute 'gdxxrw.exe Nov30.gdx var=HSIcomp.l rng=CheckWater!A188:BZ201 Rdim=3 Cdim=1'
-execute 'gdxxrw.exe Nov30.gdx  var=HSI_spec.l rng=CheckWater!A137:ZZ153 Rdim=3 Cdim=2'
-
-$offtext
+*$offtext
 
 
