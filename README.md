@@ -90,11 +90,11 @@ Future work should identify dynamic vegetation responses to water levels through
 
 ## Publication and Presentations:
 
-Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] and in the [third Chapter of my Thesis] 
+Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] and in the third Chapter of my [Thesis] 
 
-[third Chapter of my Thesis]: http://digitalcommons.usu.edu/etd/4375/
-[presentation]:
-[poster]: 
+[Thesis]: http://digitalcommons.usu.edu/etd/4375/
+[presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
+[poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
 
 ## Licensing:
 Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]. For alternative licensing arrangements, contact Omar Alminagorta and David E. Rosenberg directly. 
