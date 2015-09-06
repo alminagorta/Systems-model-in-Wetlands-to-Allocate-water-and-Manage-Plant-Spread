@@ -85,16 +85,16 @@ For more information, follow further instructions in the [Excel input file].
 [GAMS]: http://www.gams.com/
 [GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/SWAMPS_model_GAMS_code_v1.2.gms
 
-## Future work:
-Future work should identify dynamic vegetation responses to water levels through time, extend the wetland performance metric to consider additional abiotic and biotic factors that affect bird habitat, and consider alternative ways to mathematically aggregate habitat suitability indices. 
-
 ## Publication and Presentations:
-
-Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] and in the third Chapter of my [Thesis] 
+Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] or in the third Chapter of my [Thesis] 
 
 [Thesis]: http://digitalcommons.usu.edu/etd/4375/
 [presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
 [poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
+
+
+## Future work:
+Future work should identify dynamic vegetation responses to water levels through time, extend the wetland performance metric to consider additional abiotic and biotic factors that affect animal habitat, and consider alternative ways to mathematically aggregate habitat suitability indices.  Also,  The current model considers a time period of one year. Further system analysis should focus on extending the time  period  analysis  to  multi-year.  This  extension  will  provide  a  better understanding  of  how  water  allocation  affects  invasive  Phragmites  during  its complete life period. 
 
 ## Licensing:
 Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]. For alternative licensing arrangements, contact Omar Alminagorta and David E. Rosenberg directly. 
