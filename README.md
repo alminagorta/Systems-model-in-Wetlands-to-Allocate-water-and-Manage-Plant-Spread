@@ -56,12 +56,12 @@ Steps to get started:
 3. Open the [GAMS code] in the folder [SystemModel] and run the model
 4. The GAMS script will generate a report with the model outputs. To display graphical results from the GAMS code, run the Matlab code "Generation_of_Figures"
 
-For more details, see this [video] about how to start using the SWAMPS model.
+For more details, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be" target="_blank">video</a> about how to start using the SWAMPS model.
 
 [GAMS]: http://www.gams.com/
 [Excel]: https://products.office.com/en-us/excel
 [Matlab]: http://www.mathworks.com/products/matlab/?refresh=true
-[video]: https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be
+
 
 ### Alternative Scenarios:
 The model can perform different scenarios such as:
@@ -116,15 +116,10 @@ We applied the model at the Bear River Migratory Bird Refuge, which is the large
 SWAMPS can provide to wetland manager an alternative tool to measure wetland performance as well as understand how wetland performance is affected by flow variability or invasive vegetation cover. 
 
 ## More about the Refuge
-* [The Refuge Web](http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/)
-* [Spatial and Hydrological information](http://brmbr.weebly.com/)
+* <a href="http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/" target="_blank">The Refuge Web</a>
+* <a href="http://brmbr.weebly.com/" target="_blank">Spatial and Hydrological information</a>
 * Hydrological and ecological changes over time 
 
-<a href="http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/" target="_blank"></a>
-<a href="http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/">http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/</a>
-
-<a href="http://brmbr.weebly.com/" target="_blank"></a>
-<a href="http://brmbr.weebly.com/">Spatial and Hydrological information</a>
 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=ZiqBfp_Bl74
