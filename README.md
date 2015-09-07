@@ -120,6 +120,11 @@ SWAMPS can provide to wetland manager an alternative tool to measure wetland per
 * [Spatial and Hydrological information](http://brmbr.weebly.com/)
 * Hydrological and ecological changes over time 
 
+<a href="http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/" target="_blank">http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/</a>
+
+<a href="http://brmbr.weebly.com/" target="_blank">http://brmbr.weebly.com/</a>
+
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=ZiqBfp_Bl74
 " target="_blank"><img src="http://img.youtube.com/vi/ZiqBfp_Bl74/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
