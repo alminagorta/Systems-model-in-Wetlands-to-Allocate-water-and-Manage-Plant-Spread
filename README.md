@@ -86,9 +86,8 @@ For more information, follow further instructions in the [Excel input file].
 [GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/SWAMPS_model_GAMS_code_v1.2.gms
 
 ## Publication and Presentations:
-Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] or in the third Chapter of my [Thesis]. 
+Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] or in the third Chapter of my <a href="http://digitalcommons.usu.edu/etd/4375/" target="_blank">Thesis.</a>
 
-[Thesis]: http://digitalcommons.usu.edu/etd/4375/
 [presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
 [poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
 
