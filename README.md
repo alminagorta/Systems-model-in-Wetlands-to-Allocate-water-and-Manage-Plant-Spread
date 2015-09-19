@@ -84,7 +84,7 @@ The model uses a variety of input data to describe the hydrological, ecological,
    ![alt text](https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/Input_Outputs.png?attachauth=ANoY7cr2gFwb7DInLFJnBZEIWJB3Wg5qIz2I_9nBYZfDz7w04NL31ifLVeu4TzimatuV8ycs-FJPMHzWZKGrQF8xhOMSUExTl7ynxneJL62M3cNOGW4Nkjk-23UJOYWD5mMEvBJjOlMuZlgkmF8rSOYONRV25ZfDh4KBOB4TMX4OspjRBz2d6LR8R69nQqR81C50C3cq96tmkt47FLXJLvV5U7_pKmORp0EpyDKuhvRheMYU9hMYwf7fBOMu9v6aD4jXyqlmY2Wy&attredirects=0 "Logo Title Text 1")
    
 ## Publication and Presentations:
-Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] or in the third Chapter of my <a href="http://digitalcommons.usu.edu/etd/4375/" target="_blank">Thesis.</a>
+Paper submitted to the Water Resources Research Journal. A preliminary description of the model can be founded in a draft of the <a href="http://digitalcommons.usu.edu/etd/4375/" target="_blank">paper</a>, previous [presentation] and [poster].
 
 [presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
 [poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
