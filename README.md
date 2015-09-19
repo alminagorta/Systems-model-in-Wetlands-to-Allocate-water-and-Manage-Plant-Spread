@@ -13,13 +13,6 @@ The approach demonstrates a framework to develop and apply hydro-ecological perf
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 
 
-
-## Input and Output of the Model
-The model uses a variety of input data to describe the hydrological, ecological, and management components. Model outputs comprise reports, time series, and maps that show water allocations and vegetation control actions among wetland units and how these actions affect the performance in each wetland unit and over time. The table below describes the main inputs and outputs of the model.
-
-   ![alt text](https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/Input_Outputs.png?attachauth=ANoY7cr2gFwb7DInLFJnBZEIWJB3Wg5qIz2I_9nBYZfDz7w04NL31ifLVeu4TzimatuV8ycs-FJPMHzWZKGrQF8xhOMSUExTl7ynxneJL62M3cNOGW4Nkjk-23UJOYWD5mMEvBJjOlMuZlgkmF8rSOYONRV25ZfDh4KBOB4TMX4OspjRBz2d6LR8R69nQqR81C50C3cq96tmkt47FLXJLvV5U7_pKmORp0EpyDKuhvRheMYU9hMYwf7fBOMu9v6aD4jXyqlmY2Wy&attredirects=0 "Logo Title Text 1")
-
-
 The optimization model was programmed using the General Algebraic Modeling System [GAMS] software. We used Microsoft [Excel] to storage the input data and [Matlab] to post-process and graphically display results.
 
 ## Documentation:
@@ -28,7 +21,7 @@ This repository presents 4 main folders:
 * [SystemModel]:This folder contains the optimization model developed in [GAMS], the input data in a simple Microsoft Excel file ("BRMBR_Input") and a Matlab code ("Generation_of-Figures") to graphically display results of the model.
 * [Scripts_for_Paper]: This folder contains the Matlab code used to process the figures on the paper.
 * [GDX_files]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
-* [SupplementaryDocumentation]: This folder contains the LiDar data and Habitat Management Plans of the Refuge.
+* [SupplementaryDocumentation]: This folder contains the LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the paper submitted to the Water Resources Research Journal.
 
 
 [GDX]: http://www.gams.com/mccarl/gdxusage
@@ -85,6 +78,11 @@ For more information, follow further instructions in the [Excel input file].
 [GAMS]: http://www.gams.com/
 [GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/SWAMPS_model_GAMS_code_v1.2.gms
 
+## Input and Output of the Model
+The model uses a variety of input data to describe the hydrological, ecological, and management components. Model outputs comprise reports, time series, and maps that show water allocations and vegetation control actions among wetland units and how these actions affect the performance in each wetland unit and over time. The table below describes the main inputs and outputs of the model.
+
+   ![alt text](https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/Input_Outputs.png?attachauth=ANoY7cr2gFwb7DInLFJnBZEIWJB3Wg5qIz2I_9nBYZfDz7w04NL31ifLVeu4TzimatuV8ycs-FJPMHzWZKGrQF8xhOMSUExTl7ynxneJL62M3cNOGW4Nkjk-23UJOYWD5mMEvBJjOlMuZlgkmF8rSOYONRV25ZfDh4KBOB4TMX4OspjRBz2d6LR8R69nQqR81C50C3cq96tmkt47FLXJLvV5U7_pKmORp0EpyDKuhvRheMYU9hMYwf7fBOMu9v6aD4jXyqlmY2Wy&attredirects=0 "Logo Title Text 1")
+   
 ## Publication and Presentations:
 Paper in revision to resubmit to Water Resources Research Journal. A preliminary description of the model can be founded in previous [presentation], [poster] or in the third Chapter of my <a href="http://digitalcommons.usu.edu/etd/4375/" target="_blank">Thesis.</a>
 
@@ -101,7 +99,7 @@ Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]
 [BSD 3-Clause license]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/edit/master/LICENSE
 
 ## Citation:
-Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to improve  the  hydro-ecological  performance  of diked  wetlands, (Under Review to resubmit to Water Resources Research Journal).
+Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to improve  the  hydro-ecological  performance  of diked  wetlands, (Under Review - Water Resources Research Journal).
 ## Authors :
 * [Omar Alminagorta], Postdoctoral Associate at the Utah Water Research Laboratory, Utah State University, Logan, UT, o.alminagorta@aggiemail.usu.edu
 * [David E. Rosenberg], Associate Professor, Department of  Civil and Environmental Engineering and Utah Water Research Laboratory, Utah State University, Logan, UT, david.rosenberg@usu.edu
