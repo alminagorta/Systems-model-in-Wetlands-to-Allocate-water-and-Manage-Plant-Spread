@@ -19,7 +19,7 @@ The optimization model was programmed using the General Algebraic Modeling Syste
 This repository presents 4 main folders: 
 
 * [SystemModel]:This folder contains the optimization model developed in [GAMS], the input data in a simple Microsoft Excel file ("BRMBR_Input") and a Matlab code ("Generation_of-Figures") to graphically display results of the model.
-* [Scripts_for_Paper]: This folder contains the Matlab code used to process the figures on the paper.
+* [Scripts_for_Paper]: This folder contains the Matlab code used to process the figures on the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper.</a>
 * [GDX_files]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
 * [SupplementaryDocumentation]: This folder contains the LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the paper submitted to the Water Resources Research Journal.
 
@@ -84,7 +84,7 @@ For more information, follow further instructions in the [Excel input file].
 [GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/SWAMPS_model_GAMS_code_v1.2.gms
 
 ## Publication and Presentations:
-Paper submitted to the Water Resources Research Journal. A preliminary description of the model can be founded in a draft of the <a href="http://digitalcommons.usu.edu/etd/4375/" target="_blank">paper</a>, previous [presentation] and [poster].
+Paper submitted to the Water Resources Research Journal. A preliminary description of the model can be founded in a draft of the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper</a>, previous [presentation] and [poster].
 
 [presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
 [poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
