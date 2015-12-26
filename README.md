@@ -56,11 +56,10 @@ For more details, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&
 [Matlab]: http://www.mathworks.com/products/matlab/?refresh=true
 
 ## Graphical User Interface (GUI):
-A GUI was developed to facilitate the use of the SWAMPS. Instructions to setup and use the GUI are presented in its respective documentation.
+A [GUI] was developed to facilitate the use of the SWAMPS. Instructions to setup and use the GUI are presented in its respective [documentation].
 
 [GUI]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interface
 [documentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Graphical%20User%20Interface/SWAMPS-WorkshopInstructions-Final.pdf
-
 
 ![alt text] (https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/GUI.png?attachauth=ANoY7coHUNETvNV0hH4qCq1Nl4KqX05s4U0AgblClugZIspBztumCeqkWv3QKpeURYyD_XJwF-z_8e8yEnKnmugeqjbnbQZ8EUWp0K0B7sWVXHHJOkiG6QdYRnRcoq55iqUlm4nP6uTanM-EEdBeU3IDuOT5IM_111E72Pv6FVVEoxU8B-g5_evdQrxDmLuugsNlIGNzXCt97rYpYQoBMoxGgnGIqOg21uvVqEPWzxGyQJQRXPMnhxE%3D&attredirects=0)
 
