@@ -62,17 +62,16 @@ for k4=1:25
     plot(WD_3x(:,k4),'-.','LineWidth',1.5,'Color',[25 25 112]/255)%three fold-midnightblue
    %To set only ylabel to one unit   
    if k4==23,xlabel('Month','fontsize',20,'FontName','Times New Roman');
-   set(get(gca, 'XLabel'), 'Position', [-7.5 -1.5 0]); % adjust position
+   set(get(gca, 'XLabel'), 'Position', [-0.5 -1.5 0]); % adjust position
    end
     %To set only ylabel to one unit
-    if k4==11,ylabel('Water Depth (m)','fontsize',20,'FontName','Times New Roman');end
+    if k4==11,ylabel('Staff gage height(m)','fontsize',20,'FontName','Times New Roman');end
    %ylim([0 1.5])
     title(unit4(2:end),'FontSize',12,'FontName','Times New Roman');
     hold off
    %axis tight
-   axis([1 12 0 3.6]);
-    set(gca,'FontSize',11,...
-    'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
+   axis([1 12 0 4]);
+    set(gca,'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
 for i=1:5
 if k4==i set(gca, 'XAxisLocation', 'top');end
 end
@@ -93,7 +92,7 @@ end
 
 hleg = legend('No invasive vegetation','2008 initial cover','3x2008 initial cover');
 set(hleg,'Orientation','horizontal',...
-    'Position',[0.389322656391173 0 0.521023311797367 0.0570274759722755],...
+    'Position',[0.509829024082559 0.0144438327728676 0.40269698572184 0.0399881516587677],...
     'FontSize',12,...
     'box','off',...
     'FontName','Times New Roman');

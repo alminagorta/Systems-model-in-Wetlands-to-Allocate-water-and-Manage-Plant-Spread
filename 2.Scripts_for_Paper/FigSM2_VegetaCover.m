@@ -59,12 +59,12 @@ for k9=1:25
    if k9==23,xlabel('Month','fontsize',20,'FontName','Times New Roman'); end
     %To set only ylabel to one unit
     if k9==11,ylabel({'Invasive Vegetation';'Cover (%)'},'fontsize',20,'FontName','Times New Roman');end
-   %ylim([0 1.5])
+   %ylim([0 6])
     title(unit9(2:end),'FontSize',12,'FontName','Times New Roman');
-        
     hold off
    axis tight
-   %axis([1 12 0 1])
-   set(gca,'FontSize',11,...
-    'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
+   axis([1 12 0 6.0])
+   set(gca,'FontName','Times New Roman','YTick',[0 3 6.0])
+   set(gca,'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
+ % set(gca,'FontSize',11)
 end      

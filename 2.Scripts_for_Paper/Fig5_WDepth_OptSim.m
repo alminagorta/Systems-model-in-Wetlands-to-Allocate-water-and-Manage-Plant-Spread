@@ -1,5 +1,4 @@
 %% Figure 5- Water depth Simulated and Optimized
-%Updated: July 3-2015
 %Developed by Omar Alminagorta
 %Dept. of Civil & Environmental Engineering and Utah Water Research Lab
 %Utah State University
@@ -54,17 +53,18 @@ for k4=1:25
     hold on
     plot(WD(:,k4),'-r','LineWidth',1.5); hold off %Optimization Water depth
    %To set only ylabel to one unit
+ %  ylabel('Water Depth (m)','FontSize',20,'FontName','Times New Roman');
    
-   if k4==23,xlabel('Month','fontsize',20,'FontName','Times New Roman'); end
+   if k4==23,xlabel('Month','FontSize',20,'FontName','Times New Roman'); end
     %To set only ylabel to one unit
-    if k4==11,ylabel('Water Depth (m)','fontsize',20,'FontName','Times New Roman');end
+    if k4==11,ylabel('Staff gage height(m)','FontSize',20,'FontName','Times New Roman');end
    %ylim([0 1.5])
     title(unit4(2:end),'FontSize',12,'FontName','Times New Roman');
+    set(gca,'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
     hold off
    %axis tight
    axis([1 12 0 3]);
-    set(gca,'FontSize',11,...
-    'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
+
 for i=1:5
 if k4==i set(gca, 'XAxisLocation', 'top');end
 end
@@ -81,6 +81,7 @@ for m= [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 if k4==m set(gca,'XTick',[]); end
 end
 
+
 end
 
 hleg = legend('Previous Management','Model Recommendation');
@@ -89,3 +90,6 @@ set(hleg,'Orientation','horizontal',...
     'Position',[0.555067372972596 0.0110239385102722 0.37124183006536 0.0521551724137931],...
     'FontSize',12,...
     'FontName','Times New Roman');
+
+
+

@@ -1,5 +1,5 @@
 %% Fig. 7 - Plot Water Availab vs Weighted Usable Area
-%Updated: July 3-2015
+%Updated: April-2016
 %Developed by Omar Alminagorta
 %Dept. of Civil & Environmental Engineering and Utah Water Research Lab
 %Utah State University
@@ -54,11 +54,18 @@ set(hScatter(1),'Color',[0.700   0.900   1.000],'Marker','o','MarkerSize',6,'Mar
 set(hScatter(2),'Color','b','Marker','^','MarkerSize',6,'MarkerFaceColor','b');
 set(hScatter(3),'Color',[25 25 112]/255,'Marker','s','MarkerSize',6,'MarkerFaceColor',[25 25 112]/255);
 end
+% 52518.08 - before
+%  89300.0- ha-m/year -after workshop with the Refuge. They mentioned 1000 cfs water
+% right
+
 
 %Water Right  
-line([52518.08 ; 52518.08],[600;1000],'color','r')
+line([89300.0 ; 89300.0],[0;900],'color','r')
+%line([89300.0 ; 89300.0],[550;900],'color','r')
 xlabel('Water availability (ha-m/year)','fontsize',18,'FontName','Times New Roman');  
 ylabel('Weighted usable area for wetland (km^2)','fontsize',18,'FontName','Times New Roman');
-
+%ylim([0 1070])
 set(gca,'XTickLabel',get(gca,'XTick'))
-legend('No invasive vegetation','2008 initial cover', '3x 2008 initial cover','Location',[0.574948627671151 0.185657232110605 0.302739730959069 0.128930820309141])
+legend('No invasive vegetation','2008 initial cover', '3x 2008 initial cover','Refuge’s annual water right','Location',[0.554948627671151 0.185657232110605 0.302739730959069 0.128930820309141])
+
+
