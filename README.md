@@ -84,12 +84,11 @@ The model can perform different scenarios such as:
 
 For more information, follow further instructions in the [Excel input file]. 
 
-[Excel input file]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/BRMBR_Input.xls
-
+[Excel input file]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/ModelCode_2ndVersion/MultipleRun/BRMBR_Input.xls
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 
 [GAMS]: http://www.gams.com/
-[GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/SWAMPS_model_GAMS_code_v1.2.gms
+[GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel/ModelCode_2ndVersion/MultipleRun
 
 ## Publication and Presentations:
 Paper submitted to the Water Resources Research Journal. A preliminary description of the model can be founded in a draft of the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper</a>, previous [presentation] and [poster].
