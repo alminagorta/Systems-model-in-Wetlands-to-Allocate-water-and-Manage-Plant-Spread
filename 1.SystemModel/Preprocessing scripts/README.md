@@ -1,13 +1,20 @@
 # Preprocessing - Suitable area considering spatial distribution of water depths
 
 Input data and Matlab Scripting files to manage the work flow to calculate suitable area of water depth considering spatial variations in water depths in wetland units. 
-Suitable area is calculated from the water level-flooded area and habitat suitability of water depth curves in four steps listed in manuscript over two script files
+Suitable area is calculated from the water level-flooded area and habitat suitability of water depth curves in four steps listed in manuscript over two script files.
+
+##To Use
+1. Open Matlab version R2015b or later, switch to the directory where you downloaded and saved the script and data files.
+2. run **DepthVaryingSuitableArea_OA.m** (i.e., at Matlab prompt >> DepthVaryingSuitableArea_OA)
+3. Several plots will show the suitable area results and the file *SuitableAreaDepthVarying.xls* will be created.
+4. run **FittingCurve_SpecAll.m**
+5. Four plots will show the curves fitted ot the suitable area results and the curve fitting parameters will be written to the files *Paramet_OutputHSI.xls* and *G_DWparams.gdx*. 
 
 ## Script Files
 **DepthVaryingSuitableArea_OA.m** - Steps #1, 2, and 3. Matlab script file to calculate area with suitable water depth considering spatial distributions of water depths in wetland units
 
-    - Read wetland unit water level-flooded area relationships from file Lidar_data.xls and habitat suitability of water depth function parameters from BRMBR_input.xls
-	- Step 1. partition the wetland unit into zones with the same water depth and order the zones by increasing water depth. These zones are the row entries in Lidar_data.xls
+    - Read wetland unit water level-flooded area relationships from file *Lidar_data.xls* and habitat suitability of water depth function parameters from *BRMBR_input.xls*
+	- Step 1. partition the wetland unit into zones with the same water depth and order the zones by increasing water depth. These zones are the row entries in *Lidar_data.xls*
 	- Step 2. Calculate the suitable area for a particular wetland unit water level by summing products of the zone water depth suitability index and zone area. Zone area 
 	          is calculated as the difference between the wetted area of the current zone and next deeper zone 
 	- Step 3. Repeat steps 1 and 2 for various water levels and each species and each wetland units.
@@ -17,8 +24,8 @@ Suitable area is calculated from the water level-flooded area and habitat suitab
 			b) Water level-suitable area relationship for each species and wetland unit with water level-wetted area also shown (thick black lines) for each wetland unit.
 	   
 **FittingCurve_SpecAll.m** - Step 4. Matlab script file that fits a smooth, nonlinear function to the water level-suitable area results 
-       outputted in SuitableAreaDepthVarying.xls. One curve for each species in each wetland unit. 
-	   Outputs the curve fitting parameters to Paramet_OutputHSI.xls and G_DWparams.gdx. 
+       outputted in *SuitableAreaDepthVarying.xls*. One curve for each species in each wetland unit. 
+	   Outputs the curve fitting parameters to *Paramet_OutputHSI.xls* and *G_DWparams.gdx*. 
 	   Produces plots for each wetland unit and species showing the:
 	   
 		*Original water level-wetted area curve
@@ -26,7 +33,7 @@ Suitable area is calculated from the water level-flooded area and habitat suitab
 		*Suitable area considering distribution of water depth in a wetland unit (calculated in SuitableAreaDepthVarying.xls),
 		*Curve fit to depth-varying suitable area trace
 
-**SuitableAreaCompare.m** - Matlab script that plots results in SuitableAreaDepthVarying.xls from Steps 1, 2, and 3 for each wetland unit and species. Each subplot compares the water level-flooded area
+**SuitableAreaCompare.m** - Matlab script that plots results in *SuitableAreaDepthVarying.xls* from Steps 1, 2, and 3 for each wetland unit and species. Each subplot compares the water level-flooded area
       relationship  to the water level-suitable area relationships calculate by the current method (with spatial distribution of water depth) and without (assuming the wetland unit is a tank). These
 	  figures are used in the response letter to reviewers.   
 
@@ -42,12 +49,6 @@ Suitable area is calculated from the water level-flooded area and habitat suitab
 
 **G_DWparams.gdx** = GDX file for use in GAMS with with fitted coefficients for the water level-suitable area functions that consider spatial variations of water depth. One function per species and wetland unit. Same data as in Paramet_OutputHSI.xls
  
-##To Use
-1. Open Matlab version R2015b or later, switch to the directory where you downloaded and saved the script and data files.
-2. run DepthVaryingSuitableArea_OA.m     (i.e., at Matlab prompt >> DepthVaryingSuitableArea_OA)
-3. Several plots will show the suitable area results and the file SuitableAreaDepthVarying.xls will be created.
-3. run FittingCurve_SpecAll.m
-4. Several more 
 
 David Rosenberg
 Updated April 4, 2016
