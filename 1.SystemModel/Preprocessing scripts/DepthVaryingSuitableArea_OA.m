@@ -1,8 +1,10 @@
 % DepthWeightedHSIArea.m
 % Script to use water level-wetted area curves for wetland units to convert Habitat
 % Suitability Indexes for water depth into depth varying
-% habitat-suitability areas that simultaneously consider the spatial
-% distribution of water depths in a wetland unit at a particular water level staff gage reading
+% suitable areas that consider the spatial
+% distribution of water depths in a wetland unit at a particular water level. This script handles the first three of four
+% steps of the method described in Section 3.4 and Eqs 2 and 3 to calculate
+% suitable area. 
 %
 % INPUTS
 %   ElevationAreaDataFile = Excel file with Elevation data in column A
@@ -95,6 +97,11 @@ HSIDataFile = 'BRMBR_Input.xls';
 %Define Wetland Units
 vWUs = {'1' '1A' '1B' '2A' '2B' '2C' '2D' '3A' '3B' '3C' '3D' '3E' '3F' '3G' '3H' '3I' '3J' '3K' '4A' '4B' '4C' '5A' '5B' '5C' '5D'}; %ignore 5D for plot clarity??-OA-I included 5D to create the excel file
 nWUs = length(vWUs);
+%Define plot attributes for each species
+specNames = {'American avocet' 'Black-necked stilt' 'Tundra swan'};
+specColors = [0 0 1; 1 0 0; 0.168627455830574 0.505882382392883 0.337254911661148];
+lStyle  = {'-.' '-'  ':'};
+lWidth = 2;
 
 %Read in the HSI parameters
 [num,str] = xlsread(HSIDataFile,'BirdSpec','A:A');
@@ -111,11 +118,10 @@ hsi{3} = @(WDepth,PHW) WDepth*PHW(5)+PHW(6)*(1-exp(-PHW(7)*WDepth));
 %correctly
 hHSIVerify = zeros(1,s);
 legtext = cell(1,s);
-lColors = {'r' 'b' 'g'};
-lStyle  = {'-' '-.' ':'};
 
+fig1 = figure;
 for i=1:s
-     hHSIVerify(i) = plot([0:.01:2],hsi{i}([0:.01:2],HSIparams),'color',lColors{i},'linestyle',lStyle{i},'linewidth',1.5);
+     hHSIVerify(i) = plot([0:.01:2],hsi{i}([0:.01:2],HSIparams),'color',specColors(i,:),'linestyle',lStyle{i},'linewidth',lWidth);
     if i==1
         hold on
     end
@@ -123,7 +129,7 @@ for i=1:s
 end
 xlabel('Water depth (m)');
 ylabel('Habitat suitability index');
-legend(legtext);
+legend(specNames);
 
 %Creat a matrix plot of results for each wetland unit-OA_This is to omit the
 %plot of HSI
@@ -132,6 +138,8 @@ legend(legtext);
 %Record max areas
 vMaxAreas = zeros(nWUs,1);
 hPlot = zeros(nWUs,1);
+
+fig2=figure;
 
 header={'StaffGage','DVS-Spe1(Ha)','DVS-Spe2(Ha)','DVS-Spe3(Ha)','Total-DVS(Ha)','RawLidar(Ha)','Old-Spe1(Ha)','Old-Spe2(Ha)','Old-Spe3(Ha)','Total-OldWU(Ha)'} ;
 
@@ -190,15 +198,10 @@ for i=1:length(vWUs)
     hPlot(i) = subplot(5,5,i);
     hold on
     %original water level-area curve (LIDAR data)
-     plot(Results(:,1),LevelAreaFilt(:,2),'color',[0 0 0],'linewidth',2,'linestyle','-','marker','none')
+     plot(Results(:,1),LevelAreaFilt(:,2),'color',[0 0 0],'linewidth',lWidth+1,'linestyle','-','marker','none')
     %Results - depth-HSI weighted area curves for each species
     for k=1:s
-        if k==4
-            lWidth = 1.5; lStyle='-';
-        else
-            lWidth = 1; lStyle='-.';
-        end
-        plot(Results(:,1),Results(:,1+k),'linewidth',lWidth,'linestyle',lStyle,'marker','none')
+        plot(Results(:,1),Results(:,1+k),'linewidth',lWidth,'color',specColors(k,:),'linestyle',lStyle{k},'marker','none')
     end
     %OA- This is what is label as "Total Old"
     %plot(Results(:,1),HWarea,'linewidth',1.5,'marker','none');
@@ -218,8 +221,8 @@ for i=1:length(vWUs)
 selec=[Results,LevelAreaFilt(:,2),HWareaSpec,HWarea];
 
 %To write an excel file 
-  xlswrite('WeightedHSIArea.xls', header, vWUs{i},'A1');
-  xlswrite('WeightedHSIArea.xls', selec, vWUs{i},'A2');
+  xlswrite('SuitableAreaDepthVarying.xls', header, vWUs{i},'A1');
+  xlswrite('SuitableAreaDepthVarying.xls', selec, vWUs{i},'A2');
   clear selec ;
 end
 
@@ -227,7 +230,7 @@ end
 %for i=1:nWUs
 %    axis(hPlot(i),[0 3 0 max(vMaxAreas)])
 %end
-legend({'Flooded area' legtext{:}}); % 'Suitable area - depth varying' 'Suitable area - from wetted area'});
-
+lng= legend({'Flooded area (LiDAR)' specNames{:}}); % 'Suitable area - depth varying' 'Suitable area - from wetted area'});
+set(lng,'FontSize',12);
 
 
