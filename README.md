@@ -1,7 +1,6 @@
 # SWAMPS: [S]ystems model in [W]etlands to [A]llocate water and [M]anage [P]lant [S]pread
 
-We developed a system model to quantify the hydro-ecological performance of diked wetlands and embed this performance into an optimization model to recommend water allocation and invasive vegetation control in wetlands. First, we measure the hydro-ecological performance for wetlands using the habitat suitability approach. Second, we subject model recommendations for water allocations and invasive plant management in wetlands to constraints like water availability, spatial connectivity of wetland units, hydraulic infrastructure capacities, plus financial and time resources available to manage invasive vegetation and water. Third, we applied the model at the [Bear River Migratory Bird Refuge], which is the largest wetland complex on the Great Salt Lake, Utah.
-The approach demonstrates a framework to develop and apply hydro-ecological performance metrics for wetlands, embed those metrics into an optimization model, and recommend management strategies to improve wetland performance. 
+We developed a system model to recommend water allocation and invasive vegetation control in wetlands. Recommendations are subject to   constraints such as water availability, spatial connectivity of wetland units, hydraulic infrastructure capacities, plus financial and time resources available to manage invasive vegetation and water. We applied the model at the largest wetland complex at the Great Salt Lake, Utah - [Bear River Migratory Bird Refuge].
 
 [S]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread 
 [W]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread 
@@ -18,10 +17,26 @@ The optimization model was programmed using the General Algebraic Modeling Syste
 ## Documentation:
 This repository presents 4 main folders: 
 
-* [SystemModel]:This folder contains the optimization model developed in [GAMS], the input data in a simple Microsoft Excel file ("BRMBR_Input") and a Matlab code ("Generation_of-Figures") to graphically display results of the model.
+* [SystemModel]:This folder contains two versions of the optimization model: 
+
+### Model Versions:
+
+| Version        | Name          | Post Date  | Documentation  |
+| ------------- |:-------------:| -----:|-----:|
+| 1.2     | Wetland units as a rectangular tanks | May 2015 |'[Workshop instruction]' |
+| 1.5      | Wetland units considering the spatial distribution of water depths |   May 2016 |'[Instruction]' |
+
+[Workshop instruction]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
+[Instruction]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
+
+
+In both versions the input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures").
+
+
+
 * [Scripts_for_Paper]: This folder contains the Matlab code used to process the figures on the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper.</a>
-* [GDX_files]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
-* [SupplementaryDocumentation]: This folder contains the LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the paper submitted to the Water Resources Research Journal.
+* [Results]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
+* [SupplementaryDocumentation]: This folder contains the Graphical User Interfaces, LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the paper submitted to the Water Resources Research Journal.
 
 
 [GDX]: http://www.gams.com/mccarl/gdxusage
@@ -32,7 +47,7 @@ This repository presents 4 main folders:
 
 [Scripts_for_Paper]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Scripts_for_Paper
 
-[GDX_files]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.GDX_files
+[Results]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.GDX_files
 
 [SupplementaryDocumentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation
 
@@ -54,6 +69,7 @@ For more details, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&
 [GAMS]: http://www.gams.com/
 [Excel]: https://products.office.com/en-us/excel
 [Matlab]: http://www.mathworks.com/products/matlab/?refresh=true
+
 
 ## Graphical User Interface (GUI):
 A [GUI] was developed to facilitate the use of the SWAMPS. Instructions to setup and use the GUI are presented in its respective [documentation].
@@ -80,7 +96,7 @@ The model can perform different scenarios such as:
 * **Changes in water availability**: Model allows user to identified the impact of extreme hydrological events on wetland performance. To modify the inflow :
   * In the Excel file from the [SystemModel] folder, input the discharge data in the _Inflow_ sheet. Then run the GAMS code.
 * **Simulation**: Wetland managers can also use the simulation capabilities to allocate pre-determined volumes of water to particular wetland units to achieve goals such as provide specific water depths in wetland units to provide recreation (hunting) services or control avian diseases like botulism. To modify the invasive vegetation response:
-  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_ in the [GAMS code]. Save it and then run the GAMS code.
+  * Open the GAMS model from the [SystemModel] folder and activate the Equation _S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)_ in the GAMS code. Save it and then run the GAMS code.
 
 For more information, follow further instructions in the [Excel input file]. 
 
@@ -88,10 +104,9 @@ For more information, follow further instructions in the [Excel input file].
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 
 [GAMS]: http://www.gams.com/
-[GAMS code]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel/ModelCode_2ndVersion/MultipleRun
 
 ## Publication and Presentations:
-Paper submitted to the Water Resources Research Journal. A preliminary description of the model can be founded in a draft of the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper</a>, previous [presentation] and [poster].
+The paper was submitted to the Water Resources Research Journal. More information available in the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/ManuscriptDrafts" target="_blank">paper</a>, previous [presentation] and [poster].
 
 [presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
 [poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
@@ -108,7 +123,7 @@ Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]
 ## Citation:
 Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to improve  the  hydro-ecological  performance  of diked  wetlands, (Under Review - Water Resources Research Journal).
 ## Authors :
-* [Omar Alminagorta], Postdoctoral Associate at the Utah Water Research Laboratory, Utah State University, Logan, UT, o.alminagorta@aggiemail.usu.edu
+* [Omar Alminagorta], Former postdoctoral Associate at the Utah Water Research Laboratory, Utah State University, Logan, UT, o.alminagorta@aggiemail.usu.edu
 * [David E. Rosenberg], Associate Professor, Department of  Civil and Environmental Engineering and Utah Water Research Laboratory, Utah State University, Logan, UT, david.rosenberg@usu.edu
 * [Karin M. Kettenring], Associate Professor, Ecology Center and Department of Watershed Sciences, Utah State University, Logan, UT, karin.kettenring@usu.edu
 [Omar Alminagorta]: https://sites.google.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/
@@ -119,10 +134,10 @@ Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to impr
 We applied the model at the Bear River Migratory Bird Refuge, which is the largest wetland complex on the Great Salt Lake, Utah. The Refuge includes 25 managed wetland units separated by dikes and supplied water through a series of canals controlled by gates and weirs. This hydraulic infrastructure allows managers to manipulate water levels in each wetland unit with the main purpose to provide habitat for a wide variety of plants, insects, amphibians, and birds. The Refuge typically experiences hydrological and ecological changes over time (e.g., water scarcity, invasive vegetation). Thus, Refuge managers have a pressing need to better allocate scarce water and control invasive vegetation to promote diverse habitat types and support a variety of bird species.
 SWAMPS can provide to wetland manager an alternative tool to measure wetland performance as well as understand how wetland performance is affected by flow variability or invasive vegetation cover. 
 
-## More about the Refuge
+## More information about the Refuge 
 * <a href="http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/" target="_blank">The Refuge Web</a>
 * <a href="http://brmbr.weebly.com/" target="_blank">Spatial and Hydrological information</a>
-* Hydrological and ecological changes over time 
+* Hydrological and ecological changes over time (video below)
 
 
 
