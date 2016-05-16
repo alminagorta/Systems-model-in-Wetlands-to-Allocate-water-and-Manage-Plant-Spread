@@ -37,14 +37,15 @@ This repository presents 4 main folders:
 
 ### Model Versions:
 
-| Version        | Name          | Post Date  | Documentation  |
+| Version        | Name          | Post Date  |GUI-Documentation  |
 | ------------- |:-------------:| -----:|-----:|
-| 1.2     | Wetland units as a rectangular tanks | May 2015 |[Workshop instruction] |
-| 1.5      | Wetland units considering the spatial distribution of water depths |   May 2016 |[Instruction] |
+| 1.2     | [Wetland units as a rectangular tanks] | May 2015 |[Workshop instruction] |
+| 1.5      | [Wetland units considering the spatial distribution of water depths] |   May 2016 |[Instruction] |
 
 [Workshop instruction]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.2-WetlandUnitsAsTanks
 [Instruction]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.5-SpatialDistributionOfWaterDepths
-
+[Wetland units as a rectangular tanks]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel/Version1.2-WetlandUnitsAsTanks
+[Wetland units considering the spatial distribution of water depths]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel/Version1.5-SpatialDistributionOfWaterDepths
 
 ## How to use the model:
 
@@ -58,6 +59,11 @@ Steps to get started:
 4. The GAMS script will generate a report with the model outputs. To display graphical results from the GAMS code, run the Matlab code "Generation_of_Figures"
 
 For more details, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be" target="_blank">video</a> about how to start using the SWAMPS model.
+
+
+<a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be
+" target="_blank"><img src="http://img.youtube.com/vi/e5REaVgslx8/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 [GAMS]: http://www.gams.com/
 [Excel]: https://products.office.com/en-us/excel
