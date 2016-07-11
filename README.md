@@ -130,15 +130,13 @@ Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to impr
 [Karin M. Kettenring]: http://www.cnr.usu.edu/htm/facstaff/Kettenring
 
 ## Model Application at the Refuge:
-We applied the model at the Bear River Migratory Bird Refuge, which is the largest wetland complex on the Great Salt Lake, Utah. The Refuge includes 25 managed wetland units separated by dikes and supplied water through a series of canals controlled by gates and weirs. This hydraulic infrastructure allows managers to manipulate water levels in each wetland unit with the main purpose to provide habitat for a wide variety of plants, insects, amphibians, and birds. The Refuge typically experiences hydrological and ecological changes over time (e.g., water scarcity, invasive vegetation). Thus, Refuge managers have a pressing need to better allocate scarce water and control invasive vegetation to promote diverse habitat types and support a variety of bird species.
+We applied the model at the Bear River Migratory Bird Refuge, which is the largest wetland complex on the Great Salt Lake, Utah. The Refuge includes [25 managed wetland units] separated by dikes and supplied water through a series of canals controlled by gates and weirs. This hydraulic infrastructure allows managers to manipulate water levels in each wetland unit with the main purpose to provide habitat for a wide variety of plants, insects, amphibians, and birds. The Refuge typically experiences hydrological and ecological changes over time (e.g., water scarcity, invasive vegetation). Thus, Refuge managers have a pressing need to better allocate scarce water and control invasive vegetation to promote diverse habitat types and support a variety of bird species.
 SWAMPS can provide to wetland manager an alternative tool to measure wetland performance as well as understand how wetland performance is affected by flow variability or invasive vegetation cover. 
 
 ## More information about the Refuge 
 * <a href="http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/" target="_blank">The Refuge Web</a>
 * <a href="http://brmbr.weebly.com/" target="_blank">Spatial and Hydrological information</a>
 * Hydrological and ecological changes over time (video below)
-
-
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=ZiqBfp_Bl74
 " target="_blank"><img src="http://img.youtube.com/vi/ZiqBfp_Bl74/0.jpg" 
