@@ -1,4 +1,6 @@
-%% Figure 5- Water depth Simulated and Optimized
+%% Figure SM4 Plotting HSI Coverage Vegetation distribution during the year for each individual units
+
+%Updated: July 3-2015
 %Developed by Omar Alminagorta
 %Dept. of Civil & Environmental Engineering and Utah Water Research Lab
 %Utah State University
@@ -36,60 +38,27 @@
 % CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 % OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+%%
+close all; clear all;clc;
+[HSI_CVinv,text9]=xlsread('PlotFunctionsPaper.xlsx','SM4','D1:AB13');
 
-
-close all; clear all; clc;
-
-[WD,text9]=xlsread('PlotFunctionsPaper.xlsx','Fig5','D1:AB13'); %Here is the Water Depth Optimized
-[WD2,text11]=xlsread('PlotFunctionsPaper.xlsx','Fig5','D19:AB31'); %Here is the Water Depth Simulated
-
-for k4=1:25
+figure('Name','HSI Vegetation Cover')
+set(gcf,'position',get(0,'screensize'))
+for k9=1:25
      %saving individual files
-    unit4=genvarname(text9{k4}) ;
+    unit9=genvarname(text9{k9}) ;
     %plotting
-    subplot(5,5,k4);
-%   WD3=[WD(:,k4),WD2(:,k4)];
-    bar(WD2(:,k4),0.6);% Simulation Depth
-    hold on
-    plot(WD(:,k4),'-r','LineWidth',1.5); hold off %Optimization Water depth
+    subplot(5,5,k9);
+    bar(HSI_CVinv(:,k9));
    %To set only ylabel to one unit
- %  ylabel('Water Depth (m)','FontSize',20,'FontName','Times New Roman');
-   
-   if k4==23,xlabel('Month','FontSize',20,'FontName','Times New Roman'); end
+   if k9==23,xlabel('Month','fontsize',20,'FontName','Times New Roman'); end
     %To set only ylabel to one unit
-    if k4==11,ylabel('Staff gage height(m)','FontSize',20,'FontName','Times New Roman');end
-   %ylim([0 1.5])
-    title(unit4(2:end),'FontSize',12,'FontName','Times New Roman');
-    set(gca,'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
-    hold off
-   %axis tight
-   axis([1 12 0 3]);
-
-for i=1:5
-if k4==i set(gca, 'XAxisLocation', 'top');end
+   if k9==11,ylabel({'Habitat Suitability of';'Vegetation Cover'},'fontsize',20,'FontName','Times New Roman');end
+   %ylim([0 1.5])  ylabel({2010;'Population';'in Years'})
+    title(unit9(2:end),'FontSize',12,'FontName','Times New Roman');
+    
+    axis([1 12 0 1])
+    set(gca,'FontName','Times New Roman','XTick',[2 4 6 8 10 12],'YTick',[0 1])
+    set(gca,'FontSize',13)
+  % axis tight
 end
-
-for j=0:5:25
-if k4==j set(gca, 'YAxisLocation', 'right');end
-end
-
-for l= [2,3,4,7,8,9,12,13,14,17,18,19,22,23,24]
-if k4==l set(gca,'YTick',[]); end
-end 
-
-for m= [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-if k4==m set(gca,'XTick',[]); end
-end
-
-
-end
-
-hleg = legend('Previous Management','Model Recommendation');
-   
-set(hleg,'Orientation','horizontal',...
-    'Position',[0.555067372972596 0.0110239385102722 0.37124183006536 0.0521551724137931],...
-    'FontSize',12,...
-    'FontName','Times New Roman');
-
-
-

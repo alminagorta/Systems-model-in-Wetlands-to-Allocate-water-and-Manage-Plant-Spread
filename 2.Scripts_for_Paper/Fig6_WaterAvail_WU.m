@@ -1,4 +1,4 @@
-%% Fig. 7 - Plot Water Availab vs Weighted Usable Area
+%% Fig. 6 - Plot Water Availab vs Weighted Usable Area
 %Updated: April-2016
 %Developed by Omar Alminagorta
 %Dept. of Civil & Environmental Engineering and Utah Water Research Lab
@@ -39,33 +39,64 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
 %% Inflow
-[data,text]=xlsread('PlotFunctionsPaper.xlsx','WU_WAvaila','A2:E35'); % Initial Veg.Cover using 2008Landsat downscaling-10% vegResp-Automaic Gates
+[data,text1]=xlsread('PlotFunctionsPaper.xlsx','WU_WAvaila','A2:E35'); % Initial Veg.Cover using 2008Landsat downscaling-10% vegResp-Automaic Gates
 
 set(0,'DefaultFigureColor', 'white'); % sets the color to white
 
-X11=data(:,1);%Water availability
-Y11=data(:,2);%WU with three different initial vegetation cover
-ID =text(:,4); % 
-hScatter=gscatter(X11,Y11,ID)
+% X1=data(:,1);%Water availability
+X1=data(:,1)*0.01;%Water availability
+YMatrix1=data(:,2);%WU with three different initial vegetation cover
+ID =text1(:,4); % 4
+Label=text1(:,1);
+hScatter=gscatter(X1,YMatrix1,ID)
+% text(Label);
+
+
 
 %// Set colors manually. 
 for k = 1:numel(hScatter)
 set(hScatter(1),'Color',[0.700   0.900   1.000],'Marker','o','MarkerSize',6,'MarkerFaceColor',[0.700   0.900   1.000]);
 set(hScatter(2),'Color','b','Marker','^','MarkerSize',6,'MarkerFaceColor','b');
 set(hScatter(3),'Color',[25 25 112]/255,'Marker','s','MarkerSize',6,'MarkerFaceColor',[25 25 112]/255);
+
 end
-% 52518.08 - before
-%  89300.0- ha-m/year -after workshop with the Refuge. They mentioned 1000 cfs water
-% right
+
+%  89300.0- ha-m/year -1000 cfs water right
 
 
 %Water Right  
-line([89300.0 ; 89300.0],[0;900],'color','r')
-%line([89300.0 ; 89300.0],[550;900],'color','r')
-xlabel('Water availability (ha-m/year)','fontsize',18,'FontName','Times New Roman');  
+% line([89300.0 ; 89300.0],[550;900],'color','r'); In ha-m
+line([893.0 ; 893.0],[550;900],'color','r');%In MCM
+% xlabel('Water availability (ha-m/year)','fontsize',18,'FontName','Times New Roman');  
+
+xlabel('Water availability (MCM/year)','fontsize',18,...
+    'FontName','Times New Roman'); %in million of cubic meters
 ylabel('Weighted usable area for wetland (km^2)','fontsize',18,'FontName','Times New Roman');
+
 %ylim([0 1070])
-set(gca,'XTickLabel',get(gca,'XTick'))
-legend('No invasive vegetation','2008 initial cover', '3x 2008 initial cover','Refuge’s annual water right','Location',[0.554948627671151 0.185657232110605 0.302739730959069 0.128930820309141])
+set(gca,'XTickLabel',get(gca,'XTick'),'fontsize',14)
+legend('No invasive vegetation','2008 initial cover', '3x 2008 initial cover','Refuge’s annual water right','Location',[0.554948627671151 0.185657232110605 0.202739730959069 0.128930820309141])
 
 
+% ax=gca
+% ax.TickDir = 'out';
+%% To create the axis of years [above]
+
+% text(180000,920,'Year availability observed','FontSize',18,'FontName','Times New Roman');
+% 
+% % xt = [57147.27 92539.58 102296 118070 121813 184136 197390 234687 237375 405997 434857];
+% xt = [47147.27 76539.58 92396 109070 125813 180136 197390 220687 237375 400997 430857]*0.01;
+% yt = [907 907 907 907 907 907 907 907 907 907 907];
+% str = {'1992','2004','2007','2008','2010','2009','1996','2005','2006','2011','1997'};
+% text(xt,yt,str)
+
+%% To export Figure 6 to publish format : 
+%Details are specified on the export_fig file:This files export as full scream show and the commands 
+%https://github.com/altmany/export_fig/blob/master/README.md
+
+ export_fig Fig6_600dpi.tif -r600
+%  export_fig Fig6_1200dpi.tif -r1200
+% %When exporting to vector format (pdf & eps), this function requires that ghostscript is installed on your system. You can download this from: 
+% % http://www.ghostscript.com 
+%    
+%  export_fig Fig6.pdf 

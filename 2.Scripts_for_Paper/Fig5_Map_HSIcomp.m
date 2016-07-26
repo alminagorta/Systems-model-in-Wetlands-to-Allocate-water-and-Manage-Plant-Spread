@@ -1,4 +1,4 @@
-%% Figure 6- Spatially and temporally map HSI composed- 
+%% Figure 5- Spatially and temporally map HSI composed- 
 %Updated: July 3-2015
 %Developed by Omar Alminagorta
 %Dept. of Civil & Environmental Engineering and Utah Water Research Lab
@@ -83,20 +83,33 @@ Igreym=NaN(size(Igrey));
 for i=1:length(cName);
     inde=find(Igrey==ID1(iOr2(i)));
 Igreym(inde)=Rmon1(i);
+
+%OA_To add label units
+% text(x(i),y(i),Name2(i), 'FontSize',8);
+
 end
 subplot(4,3,j); 
 % To map the results
-   mesh(flipud(Igreym));
+   imagesc((Igreym));
+% contour (flipud(Igrey),'Color','k','LineWidth',0.8);
+ 
     %colormap(pink);
     colormap(flipud(pink));
-     view(2)
+
+% view(2)
  xlim([50 400]) ;
 ylim([0 250]);
 axis off;
-title([monthName(j)],'FontSize',14,'FontName','Times New Roman');
+% title([monthName(j)],'FontSize',14,'FontName','Times New Roman');
 hold on ;
-contour (flipud(Igrey),'Color','k','LineWidth',0.8);
-   alpha(0.3);
+contour ((Igrey),'Color','k','LineWidth',0.8);
+%    mesh(flipud(Igreym));
+% alphamap(0.01);
+
+
+   
+%OA_To make bigger the refuge
+axis fill
 
 whitebg('w')
 set(gca,'Color','w');
@@ -106,19 +119,26 @@ axis fill
 clim=[0 1]; % Data range...
   caxis(clim);
 if j==1,
+
 h=colorbar;
   set(h,'position',[ 0.0921339998649555 0.104437593984962 0.01219 0.815],'AxisLocation','in',...
     'FontSize',14,...
     'FontName','Times New Roman');
+
 end
 
 end
+
+% To put the names of the units
+% for i=1:length(cName);
+% text(x(i),y(i),Name2(i));
+% end
 
 % Create textbox
 annotation('textbox',...
     [0.0111278914747058 0.877737226277371 0.0910518053375196 0.071129046966679],...
     'String',{'Excellent'},...
-    'FontSize',14,...
+    'FontSize',18,...
     'FontName','Times New Roman',...
     'FitBoxToText','off',...
     'LineStyle','none');
@@ -127,7 +147,38 @@ annotation('textbox',...
 annotation('textbox',...
     [0.0383469513025919 0.0941277833855477 0.0806326530612243 0.0448113207547169],...
     'String',{'Poor'},...
-    'FontSize',14,...
+    'FontSize',18,...
     'FontName','Times New Roman',...
     'FitBoxToText','off',...
     'LineStyle','none');
+%% Call-outs Wetlan Units  
+% Create textarrow
+annotation('line',[0.263723876009835 0.283854166666667],...
+    [0.809115393040125 0.869618696186962]);
+
+% Create textbox
+annotation('textbox',...
+    [0.27834375 0.869003690036899 0.0219166666666665 0.0381303813038126],...
+    'String','4B',...
+    'FontSize',14,...
+    'FitBoxToText','off',...
+    'EdgeColor',[1 1 1]);
+
+% Create textarrow
+annotation('line',[0.228307209343169 0.244270833333333],...
+    [0.846015762043814 0.890528905289053]);
+
+% Create textbox
+annotation('textbox',...
+    [0.239541666666667 0.900369003690037 0.0292083333333333 0.0270602706027057],...
+    'String',{'2B'},...
+    'FontSize',14,...
+    'FitBoxToText','off',...
+    'EdgeColor',[1 1 1]);
+
+
+%% To export Figure 5 to publish format : 
+%Details are specified on the export_fig file:This files export as full scream show and the commands 
+%https://github.com/altmany/export_fig/blob/master/README.md
+
+export_fig Fig5_600dpi.tif -r600

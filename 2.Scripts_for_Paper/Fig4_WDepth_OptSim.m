@@ -1,5 +1,4 @@
-%% Figure SM5- Habitat Suitability for Bird Species
-%Updated: July 3-2015
+%% Figure 4- Water depth Simulated and Optimized
 %Developed by Omar Alminagorta
 %Dept. of Civil & Environmental Engineering and Utah Water Research Lab
 %Utah State University
@@ -39,40 +38,34 @@
 % OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-%%
-% Ploting Wdepths under different Initial VegetationCover for three cases
-%Update June 2015
-[WD_AutGate,text16]=xlsread('PlotFunctionsPaper.xlsx','Wdepth_byDiffeVegCover','D3:AB15'); % Initial Veg.Cover using 2008Landsat downscaling-10% vegResp-Automaic Gates
-[WD_0x,text16]=xlsread('PlotFunctionsPaper.xlsx','Wdepth_byDiffeVegCover','D20:AB32'); %No Initial Veg.Cover
-[WD_3x,text16]=xlsread('PlotFunctionsPaper.xlsx','Wdepth_byDiffeVegCover','D37:AB49'); %Three fold - Initial Veg.Cover
+close all; clear all; clc;
+set(0,'DefaultFigureColor', 'white'); % sets the color to white
 
-figure('Name','WaterDepth_IniVcover')
-set(gcf,'position',get(0,'screensize'))
-
+[WD,text9]=xlsread('PlotFunctionsPaper.xlsx','Fig5','D1:AB13'); %Here is the Water Depth Optimized
+[WD2,text11]=xlsread('PlotFunctionsPaper.xlsx','Fig5','D19:AB31'); %Here is the Water Depth Simulated
 
 for k4=1:25
      %saving individual files
-    unit4=genvarname(text16{k4}) ;
+    unit4=genvarname(text9{k4}) ;
     %plotting
     subplot(5,5,k4);
 %   WD3=[WD(:,k4),WD2(:,k4)];
-    plot(WD_0x(:,k4),'-','LineWidth',1.5,'Color',[0.700   0.900   1.000]); hold off %Zero Initial vegetation cover-lightskyBlue
+    bar(WD2(:,k4),0.6);% Simulation Depth
     hold on
-    plot(WD_AutGate(:,k4),'--b','LineWidth',1.5)%2008-downscaled
-    plot(WD_3x(:,k4),'-.','LineWidth',1.5,'Color',[25 25 112]/255)%three fold-midnightblue
-   %To set only ylabel to one unit   
-   if k4==23,xlabel('Month','fontsize',20,'FontName','Times New Roman');
-   set(get(gca, 'XLabel'), 'Position', [-0.5 -1.5 0]); % adjust position
-   end
+    plot(WD(:,k4),'-r','LineWidth',1.5); hold off %Optimization Water depth
+   %To set only ylabel to one unit
+ %  ylabel('Water Depth (m)','FontSize',20,'FontName','Times New Roman');
+   
+   if k4==23,xlabel('Month','FontSize',20,'FontName','Times New Roman') ; end
     %To set only ylabel to one unit
-    if k4==11,ylabel('Staff gage height(m)','fontsize',20,'FontName','Times New Roman');end
+    if k4==11,ylabel('Staff gage height(m)','FontSize',20,'FontName','Times New Roman');end
    %ylim([0 1.5])
-    title(unit4(2:end),'FontSize',12,'FontName','Times New Roman');
+    title(unit4(2:end),'FontSize',14,'FontName','Times New Roman');
+    set(gca,'FontSize',14,'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
     hold off
    %axis tight
-   axis([1 12 0 4]);
-    set(gca,'FontName','Times New Roman','XTick',[2 4 6 8 10 12])
-    set(gca,'FontSize',13)
+   axis([1 12 0 3]);
+
 for i=1:5
 if k4==i set(gca, 'XAxisLocation', 'top');end
 end
@@ -89,11 +82,24 @@ for m= [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 if k4==m set(gca,'XTick',[]); end
 end
 
+
 end
 
-hleg = legend('No invasive vegetation','2008 initial cover','3x2008 initial cover');
+hleg = legend('Previous Management','Model Recommendation');
+   
 set(hleg,'Orientation','horizontal',...
-    'Position',[0.509829024082559 0.0144438327728676 0.40269698572184 0.0399881516587677],...
-    'FontSize',12,...
-    'box','off',...
+    'Position',[0.555067372972596 0.0110239385102722 0.37124183006536 0.0521551724137931],...
+    'FontSize',14,...
     'FontName','Times New Roman');
+
+%% To export Figure 4 to publish format : 
+%Details are specified on the export_fig file:This files export as full scream show and the commands 
+%https://github.com/altmany/export_fig/blob/master/README.md
+
+export_fig Fig4_1200dpi.tif -r1200
+
+%When exporting to vector format (pdf & eps), this function requires that ghostscript is installed on your system. You can download this from: 
+% http://www.ghostscript.com 
+   
+%export_fig Fig4.pdf 
+
