@@ -136,7 +136,9 @@ Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring (2016), Systems modeling 
 
 [ScienceDaily] and [NaturalScienceNews]
 
-[ScienceDaily] and [NaturalScienceNews]
+[ScienceDaily]: https://www.sciencedaily.com/releases/2016/09/160902105843.htm
+[NaturalScienceNews]: http://naturalsciencenews.com/2016/09/03/researchers-develop-mathematical-model-for-managing-wetlands/
+
 
 
 ## Model Application at the Refuge:
