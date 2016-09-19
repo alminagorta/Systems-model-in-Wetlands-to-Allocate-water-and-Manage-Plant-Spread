@@ -120,7 +120,10 @@ Materials in this GitHub repository are disturbed under a [BSD 3-Clause license]
 [BSD 3-Clause license]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/edit/master/LICENSE
 
 ## Citation:
-Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring (2016), Systems modeling to improve the hydro-ecological performance of diked wetlands, Water Resour. Res., 52, doi:10.1002/2015WR018105.
+Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring (2016), Systems modeling to improve the hydro-ecological performance of diked wetlands, Water Resour. Res., 52, [doi:10.1002/2015WR018105].
+
+[doi:10.1002/2015WR018105]: http://onlinelibrary.wiley.com/doi/10.1002/2015WR018105/full
+
 ## Authors :
 * [Omar Alminagorta], Former postdoctoral Associate at the Utah Water Research Laboratory, Utah State University, Logan, UT, o.alminagorta@aggiemail.usu.edu
 * [David E. Rosenberg], Associate Professor, Department of  Civil and Environmental Engineering and Utah Water Research Laboratory, Utah State University, Logan, UT, david.rosenberg@usu.edu
