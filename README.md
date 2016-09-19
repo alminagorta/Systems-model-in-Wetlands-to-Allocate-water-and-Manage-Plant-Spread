@@ -20,7 +20,7 @@ This repository presents 4 main folders:
 * [SystemModel]:This folder contains two versions of the optimization model(version 1.2 and 1.5). In both versions the input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures").
 * [Scripts_for_Paper]: This folder contains the Matlab code used to process the figures on the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper.</a>
 * [Results]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
-* [SupplementaryDocumentation]: This folder contains the Graphical User Interfaces, LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the paper submitted to the Water Resources Research Journal.
+* [SupplementaryDocumentation]: This folder contains the Graphical User Interfaces, LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the [paper] submitted to the Water Resources Research Journal.
 
 
 [GDX]: http://www.gams.com/mccarl/gdxusage
@@ -105,11 +105,12 @@ For more information, follow further instructions in the [Excel input file].
 [GAMS]: http://www.gams.com/
 
 ## Publication and Presentations:
-The paper was submitted to the Water Resources Research Journal. More information available in the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/ManuscriptDrafts" target="_blank">paper</a>, previous [presentation] and [poster].
+The paper was published in the Water Resources Research Journal. More information available in the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/ManuscriptDrafts" target="_blank">[paper]</a>, previous [presentation] and [poster].
 
 [presentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/SpringRunoffConference_2013.pdf
 [poster]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Presentations/AGU_Poster_Dec2012.pdf
 
+[paper]: http://onlinelibrary.wiley.com/doi/10.1002/2015WR018105/abstract
 
 ## Future work:
 Future work should identify dynamic vegetation responses to water levels through time, extend the wetland performance metric to consider additional abiotic and biotic factors that affect animal habitat, and consider alternative ways to mathematically aggregate habitat suitability indices.  Also,  The current model considers a time period of one year. Further system analysis should focus on extending the time  period  analysis  to  multi-year.  This  extension  will  provide  a  better understanding  of  how  water  allocation  affects  invasive  Phragmites  during  its complete life period. 
