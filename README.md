@@ -132,6 +132,13 @@ Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring (2016), Systems modeling 
 [David E. Rosenberg]:http://www.engr.usu.edu/cee/faculty/derosenberg/
 [Karin M. Kettenring]: http://www.cnr.usu.edu/htm/facstaff/Kettenring
 
+## In the News 
+
+[ScienceDaily] and [NaturalScienceNews]
+
+[ScienceDaily] and [NaturalScienceNews]
+
+
 ## Model Application at the Refuge:
 We applied the model at the Bear River Migratory Bird Refuge, which is the largest wetland complex on the Great Salt Lake, Utah. The Refuge includes [25 managed wetland units] separated by dikes and supplied water through a series of canals controlled by gates and weirs. This hydraulic infrastructure allows managers to manipulate water levels in each wetland unit with the main purpose to provide habitat for a wide variety of plants, insects, amphibians, and birds. The Refuge typically experiences hydrological and ecological changes over time (e.g., water scarcity, invasive vegetation). Thus, Refuge managers have a pressing need to better allocate scarce water and control invasive vegetation to promote diverse habitat types and support a variety of bird species.
 SWAMPS can provide to wetland manager an alternative tool to measure wetland performance as well as understand how wetland performance is affected by flow variability or invasive vegetation cover. 
