@@ -17,9 +17,9 @@ The optimization model was programmed using the General Algebraic Modeling Syste
 ## Documentation:
 This repository presents 4 main folders: 
 
-* [SystemModel]:This folder contains two versions of the optimization model(version 1.2 and 1.5). In both versions the input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures").
-* [Scripts_for_Paper]: This folder contains the Matlab code used to process the figures on the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper.</a>
-* [Results]: This folder contains [GDX] files that can be used to pass the input and output of the model into different programs.  
+* [Version1.2_WetlandUnitsAsTanks]: This folder contains the version 1.2 of the optimization model. The input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures"). This folder also contains the GDX files [Results] that can be used to pass the input and output of the model into different programs.  
+* [Version1.5_SpatialWaterDepths]:  This folder contains the version 1.5 of the optimization model. The input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures"). This folder also contains the GDX files [Results] that can be used to pass the input and output of the model into different programs. 
+* [Scripts]: This folder contains the Matlab code used to process the figures on the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper.</a>
 * [SupplementaryDocumentation]: This folder contains the Graphical User Interfaces, LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the [paper] submitted to the Water Resources Research Journal.
 
 
@@ -27,9 +27,11 @@ This repository presents 4 main folders:
 
 
 
-[SystemModel]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel
+[Version1.2_WetlandUnitsAsTanks]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel
 
-[Scripts_for_Paper]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Scripts_for_Paper
+[Version1.5_SpatialWaterDepths]: 
+
+[Scripts]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Scripts_for_Paper
 
 [Results]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.Results
 
@@ -55,10 +57,13 @@ Steps to get started:
   1. You can download from www.gams.com.
   2. Make sure that your computer has Microsoft [Excel] and [Matlab] (R2013a or more recent)
 2. Download the folders contained on this GitHub repository. 
-3. Open the [GAMS code] in the folder [SystemModel] and run the model
-4. The GAMS script will generate a report with the model outputs. To display graphical results from the GAMS code, run the Matlab code "Generation_of_Figures"
+3. Open the GAMS IDE, select File => Project, navigate to the folder Version1.5_SpatialDistributionOfWaterDepth\MultipleRun, enter a project name and click enter.
+4. Select File "SWAMPS_v1.5_MultipleRun_4Scen" and Open it. This file containts 4 scenarios: (1)Previous Management (Base Case), (2) Automatic Gates, (3) Invasive Vegetation 2X and (4) Invasive Vegetation 3X.
+5. Press F9 or File => Run to optimize. GAMS will generate results for the 4 scenarios: (1)ResultSim (Previous Management), (2) ResultOpt (Automatic Gates), (3) ResultCV2 (Invasive Vegetation 2X) and (4) ResultCV3 (Invasive Vegetation 3X).
+6. To display graphical results from the GAMS results generated in step 5, open Matlab, change to the folder, select the scenario name and run the Matlab code "Generation_of_Figures"
+7. To run other scenarios, see "Alternative Scenarios" below 
 
-For more details, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be" target="_blank">video</a> about how to start using the SWAMPS model.
+As a reference, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be" target="_blank">video</a> about how to start using the SWAMPS model.
 
 
 <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be
@@ -71,7 +76,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
 ## Graphical User Interface (GUI):
-A [GUI] was developed to facilitate the use of the SWAMPS. Instructions to setup and use the GUI are presented in its respective [documentation].
+A [GUI] was developed to facilitate the use of the SWAMPS. Instructions to setup and use the GUI are presented in its respective [documentation]. The GUI allows the user to run a single scenario with input data entered either within the GUI or in an Excel file. Use the Input Type menu to select the model version as either dataAsTank (version 1.2) or dataSpatialWD (version 1.5).
 
 [GUI]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.5-SpatialDistributionOfWaterDepths
 [documentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.5-SpatialDistributionOfWaterDepths/SWAMPS_V1.5-Instructions.pdf

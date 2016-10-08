@@ -2,19 +2,13 @@ $TITLE: SWAMPS v1.5 : Systems model in Wetlands to Allocate water and Manage Pla
 
 $Ontext
 
-Created by Omar Alminagorta, David E. Rosenbberg
+Created by Omar Alminagorta, David E. Rosenberg
 Utah Water Research Laboratory, Utah State University.
 Updated March 2016 - Version 1.5 (Merge of Matlab GUI and Excel
      input versions into a single file)
 
 The model recommends water allocation and invasive vegetation removal to improve the wetland performance
 Model is applied to 25 wetland units at the Bear River Migratory Bird Refuge.
-
-++++++++++++++++++++++++++++++++
-Updated - April 4th -2016
- I tried to incorporate the scenario of multiple runs but still there is a small error
-
-++++++++++++++++++++++++++++++++
 
 -------------------------------------------------------------------------------
 How to use it:
@@ -24,23 +18,29 @@ Input: The model uses the excel file "BRMBR_Input" and optionally
 Output: After run the GAMS code, the model will generate a report results and a GDX file ("Result.gdx").
        To graphically display results we can also use the matlab file "Generation_of_Figures"
 
-Use Scalar DataSource to control source of model input data. Options are:
-  1 = entirely from Excel file "BRMBR_Input.xls"
-  2 = Vegetation Response, Budget, Species Weight, and Initial Storage in Wetland Units
+-------------------------------------------------------------------------------
 
-Use Scalar ModelType to specify the type of model to run. Options are:
+A: Use Scalar DataSource to control source of model input data. Options are:
+
+[1] GUI as a Tank, [2] Excel as a Tank, [3]GUI-spatial WD ,[4]Excel -spatial WD
+
+GUI=>control input data related to:  Vegetation Response, Budget, Species Weight, and Initial Storage in Wetland Units
+Excel=> control all input data of the model in the Excel file "BRMBR_Input.xls"
+
+
+B: Use Scalar ModelType to specify the type of model to run. Options are:
   1 = Run in simulation model. Adds equations:
              S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)
   2 = Run in optimization mode (no gate constraints; solves Model Nov2015)
   3 = Run in optimization mode with gate constraints. Sovles Model GateConstraint
-
+--------------------------------------------------------------------------------
 This version can use the Matlab GUI executable without need of MATLAB license, but still needs GAMS license
 See more information in the Instruction document.
 -------------------------------------------------------------------------------
 If you use the model or part of the code, cite as:
 
-Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring, Systems modeling to improve  the  hydro-ecological  performance  of
-diked  wetlands, (in review at the Water Resources Research Journal).
+Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring (2016), Systems modeling to improve the hydro-ecological performance of diked wetlands, Water Resour. Res., 52, doi:10.1002/2015WR018105.
+
 -------------------------------------------------------------------------------
 
 Licensing:
@@ -79,20 +79,17 @@ $Offtext
 * Input Data
 *===================================
 
-SETS     i     all model nodes
-         spec   number of bird species for Cover Vegetation and for Hydrologic Condition
-         dem   Demand of water
-         yr   year
-         mn   month
-         dy   day
+SETS     i        all model nodes
+         spec     number of bird species for Cover Vegetation and for Hydrologic Condition
+         dem      Demand of water
+         yr       year
+         mn       month
+         dy       day
          jn(i)    Subsets for junctions
          wu(i)    Subsets for wetland units
          Out(i)   Subsets for Outlets
-*To evaluate multscen
-         sc   water availability scenarios
-        ivc  invasive vegetation factor to run scenarios /ivc1*ivc3/
-*         ivc  invasive vegetation factor to run scenarios /ivc1/
 
+         ivc      invasive vegetation factor to run scenarios /ivc1*ivc3/
  ;
 
 Alias(i,j)
@@ -167,13 +164,6 @@ Typ3
 
 $CALL GDXXRW.EXE BRMBR_Input.xls Set=i rng=nodes!A1:A500 Rdim=1  Set=spec rng=BirdSpec!A1:A500 Rdim=1  Set=yr rng=yr!A1:A500 Rdim=1   Set=mn rng=mn!A1:A500 Rdim=1   Set=dy rng=dy!A1:A500 Rdim=1   set=jn rng=junction!A1:A500 Rdim=1  set=wu rng=wu!A1:A500 Rdim=1   set=Out rng=Out!A1:A500 Rdim=1  set=links rng=links!A1:B500 Rdim=2  par=jn_ts_data  rng=Inflow!A1 Rdim=3 Cdim=2    par=wu_ts_data  rng=Table!A1 Rdim=3 Cdim=2   par=Out_par_data  rng=out_data!A1 Rdim=1 Cdim=1   par=wu_par_data  rng=wu_data!A1 Rdim=1 Cdim=1    par= link_par_data  rng=link_data!A1  Rdim=2 Cdim=1     par=Connect  rng=link!A1  Rdim=1 Cdim=1    par=LossEvapo rng=evap!A1 Rdim=1     Set=dem rng=demStor!A1 Rdim=1   par=DemandStor rng=Demd!A1   Rdim=4 Cdim=1   par=ParametCurve   rng=Param!A1 Rdim=2 Cdim=1    par=UnitMang rng=Um!A1 Rdim=2 Cdim=1   par=VegMag rng=vegm!A1 Rdim=1    par=UnitCost rng=unitc!A1 Rdim=1    par=VegResp rng=vegRes!A1 Rdim=1   par=AvalGateAct rng=avalGate!A1 Rdim=1   par=B rng=budget!A1 Rdim=0   par=specweight rng=specWeight!A1 Rdim=1 Cdim=1   par=PHW1 rng=Param_HW!B2 Rdim=0   par=PHW2 rng=Param_HW!C2 Rdim=0   par=PHW3 rng=Param_HW!D2 Rdim=0   par=PHW4 rng=Param_HW!E2 Rdim=0   par=PHW5 rng=Param_HW!F2 Rdim=0   par=PHW6 rng=Param_HW!G2 Rdim=0   par=PHW7 rng=Param_HW!H2 Rdim=0   par=PHV1 rng=Param_HV!B2 Rdim=0   par=PHV2 rng=Param_HV!C2 Rdim=0   par=PHV3 rng=Param_HV!D2 Rdim=0   par=PHV4 rng=Param_HV!E2 Rdim=0   par=wu_ts_data2  rng=Init_CV!A1 Rdim=1 Cdim=1  par=wu_ts_data3  rng=Init_Stor!A1 Rdim=1 Cdim=1
 
-*To evaluate multscen
-*=================================================
-*To import water availability scenario data from excel
-*=================================================
-$CALL GDXXRW.EXE WaterAvail_Scenarios.xlsx Set=sc rng=sc!A1:A500 Rdim=1  par=WaterAvail  rng=ScenariosForGams!A1 Rdim=2 Cdim=3
-
-
 SET links(i,j)  link from i to j ;
 Parameter jn_ts_data(yr,mn,dy,jn_ts_par,jn) ;
 Parameter wu_ts_data(yr,mn,dy,wu_ts_par,wu) ;
@@ -238,9 +228,9 @@ $LOAD   UnitCost
 $LOAD   AvalGateAct
 *MMMMMMMMMM
 *Initially load input data from Excel file
-$LOAD   B
-$LOAD   specweight
-$LOAD   VegResp
+*$LOAD   B
+*$LOAD   specweight
+*$LOAD   VegResp
 
 $LOAD   PHW1
 $LOAD   PHW2
@@ -267,18 +257,6 @@ $GDXIN
 
 DISPLAY DWparams;
 
-
-** Load the water availability data
-Parameter WaterAvail(mn,dy,jn_ts_par,sc,jn) ;
-
-$GDXIN WaterAvail_Scenarios.gdx
-$LOAD   sc
-$LOAD   WaterAvail
-
-$GDXIN
-
-Display WaterAvail;
-
 *===================================
 * further subsets to simplify model
 *===================================
@@ -300,9 +278,9 @@ Parameter Inflow(yr,mn,dy,i) inflow   ;
           Inflow(yr,mn,dy,wu) =  WU_ts_data(yr,mn,dy,"Inflow",wu) ;
           Inflow(yr,mn,dy,jn) =  JN_ts_data(yr,mn,dy,"Inflow",jn) ;
 
-*MMMMMMMMMM
-         Parameter initStor2(i) initial storage at wetland ha-m) ;
-          initStor2(wu) =  wu_ts_data3(wu,"InitialStor")  ;
+*MMMMMMMMMM  -Desactivated to inport data from Matlab
+*^Parameter initStor2(i) initial storage at wetland ha-m) ;
+*^          initStor2(wu) =  wu_ts_data3(wu,"InitialStor")  ;
 
 Parameter lossQ(i,j)  link shows the loss in channels ;
           lossQ(i,j) = link_par_data(i,j,"lossQ") ;
@@ -344,7 +322,6 @@ Parameter DemandHy(yr,mn,dy,wu)  ;
 Parameter InitValuesStorage(yr,mn,dy,wu)  ;
           InitValuesStorage(yr,mn,dy,wu) =  DemandStor(yr,mn,dy,wu,"InitValuesStor");
 
-
 *Parameters to define the relationship Wdepth-Storage and Flood Area [Based on Lidar data]
 Parameter AA(wu,mn) first parameter lineal Eq. to estimate Wdepth;
           AA(wu,mn) = ParametCurve (wu,mn,"a") ;
@@ -367,62 +344,87 @@ Parameter EE(wu,mn) third parameter Quadratic Eq. to estimate Area;
 
 *To evaluate multscen
 Parameter InitIVCMult(ivc) Initial invasive vegetation cover as a multiple of base case
-      /ivc1 0, ivc2 1, ivc3 3/;
-*^Parameter InitIVCMult(ivc) Initial invasive vegetation cover as a multiple of base case
-*^      /ivc1 1/;
+      /ivc1 0, ivc2 2, ivc3 3/;
+
 
 *type of model to solve
 *1=Using GUI data and running simulation
 *2=Using GUI data and running Optimization
 *3=Using GUI data and running Gate constrained
 
-Parameter ModelType, DataSource Flag for source of data /1/;
+*OA-desact-May1st-2016
+*Parameter ModelType, DataSource Flag for source of data /1/;
 
+*OA-Use for GUI 9Ap16
 *^$GDXIN G_ModelType
 *^$LOAD ModelType
 *$LOAD DataSource
 *^$GDXIN
 
-$ontext
+*++++++Sept2015+++++++++ Incorporating multiple models in one file+++++++++++
+*[1] GUI as a Tank, [2] Excel as a Tank, [3]GUI-spatial WD ,[4]Excel -spatial WD
+*type of model to solve
+*^^^As a Tank
+*11=Using GUI data and running simulation
+*12=Using GUI data and running Optimization
+*13=Using GUI data and running Gate constrained
+*21=Using Excel data and running simulation
+*22=Using Excel data and running Optimization
+*23=Using Excel data and running Gate constrained
+
+*^^^Spatial Wdepth
+
+* 31=Using GUI data and running simulation
+* 32=Using GUI data and running Optimization
+* 33=Using GUI data and running Gate constrained
+* 41=Using Excel data and running simulation
+* 42=Using Excel data and running Optimization
+* 43=Using Excel data and running Gate constrained
+
+
+
+
+
+Parameter ModelType ;
+$GDXIN G_ModelType
+$LOAD ModelType
+$GDXIN
+
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+*$ontext
 *MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 *==========================================
-* Read select inputs from Matlab interface into temporary parameters
-* ==========================================
+* Matlab interface
+*==========================================
 
-Parameters B_gui,VegResp_gui(mn),specweight_gui(mn,spec),initStor2_gui(wu);
-
-*   ++++++Ecological Inputs from Matlab++++++++++++
-*    Parameter B ;
+*++++++Ecological Inputs from Matlab++++++++++++
+Parameter B ;
 $GDXIN G_Budget
-$LOAD B_gui
+$LOAD B
 $GDXIN
 
-*   This is for parameters of VegetResponse
-*    Parameter VegResp(mn) ;
+
+*This is for parameters of VegetResponse
+Parameter VegResp(mn) ;
 $GDXIN G_VegResponse
-$LOAD VegResp_gui
-$GDXIN
-*   This is for SpeciesWeight,
-*    Parameter specweight(mn,spec) ;
-$GDXIN G_specweight
-$LOAD specweight_gui
+$LOAD VegResp
 $GDXIN
 
-*   This is for Initial Storage,
-*    Parameter initStor2(wu);
+
+*This is for SpeciesWeight,
+Parameter specweight(mn,spec) ;
+$GDXIN G_specweight
+$LOAD specweight
+$GDXIN
+
+*This is for Initial Storage,
+Parameter initStor2(wu);
 $GDXIN G_initStor
 $LOAD initStor2
 $GDXIN
-
-if (DataSource eq 2,
-*   Copy temporary parameters into model parameters
-    B = B_gui;
-    VegResp(mn) = VegResp_gui(mn);
-    specweight(mn,spec) = specweight_gui(mn,spec);
-    initStor2(wu) = initStor2_gui(wu);
-    );
 *MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-$offtext
+*$offtext
 *==========================================
 * Generation of Variables and Equations
 *==========================================
@@ -822,6 +824,7 @@ EqDVSGompertz(yr,mn,dy,wu,spec)$(DWparams(wu,spec,"p0") eq 2)..
          DVS(yr,mn,dy,wu,spec) =e=
                10000*DWparams(wu,spec,"p1")*exp(-DWparams(wu,spec,"p2")*exp(-DWparams(wu,spec,"p3")*WDepth(yr,mn,dy,wu)));
 
+
 *4th order polynomial
 EqDVSPoly(yr,mn,dy,wu,spec)$(DWparams(wu,spec,"p0") eq 3)..
          DVS(yr,mn,dy,wu,spec) =e=
@@ -849,7 +852,8 @@ EqWUAW(yr,mn,dy,stor)..
 
 *$ontext
 *--------------------------------------------------------------------------------------------------------------------------
-
+*OA-desact-1st may-2016
+$ontext
 *-------------------------
 *Used for simulation
 *-------------------------
@@ -861,6 +865,28 @@ ModelType = 2;
        if ((ModelType eq 1),
 *      To proceed with the Simulation model
           S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu) ) ;
+
+$offtext
+$ontext
+*++++++Sept2015+++++++++ Incorporating multiple models in one file+++++++++++
+
+*      Conditional to work with GUI input in Simulation
+*As a Tank
+       if ((ModelType eq 11),
+*      To proceed with the Simulation model
+          S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu) ) ;
+
+*Spatial WDepth
+       if ((ModelType eq 31),
+*      To proceed with the Simulation model
+          S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu) ) ;
+
+$offtext
+
+
+
+*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 *To Optimize
@@ -876,136 +902,137 @@ ObjectiveFunction..
 *===================================
 
 *MOdel Nov30 /all/
+*Old version
 Model Nov2015 original version  /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
+*New Version
 Model Mar2016_DVS Depth-varying suitability /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqDVSGaus,EqDVSGompertz,EqDVSPoly,EqWUAW_DVS,EqArea,EqHSIcompDVS,ObjectiveFunction/;
-*Typically Gate constraint scenario can take more time (around 40 min if we constraint to 4 gates per month)
+*Old version-Gates: Typically Gate constraint scenario can take more time (around 40 min if we constraint to 4 gates per month)
 Model GateConstraint original version with gates contraint /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqGateActRelease,EqGateActDeliv,EqGateAct2,EqGateAct3,EqHSIcomp,EqWUAW,ObjectiveFunction/;
-*Model TestingCV1 Adding HSI_CV=1/EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv2,EqBud,EqRemovedCV2,Eq_WDepth,EqHSI_spec1,EqHSI_spec2,EqHSI_spec3,EqHSI_SumSp,EqArea,EqHSIcomp,EqWUAW,ObjectiveFunction/;
-
+*New version-Gates:
 Model Mar2016_DVS_GatesConstraint Depth-varying suitability /EqMassBalNonStor,EqMassBalNonStor_Out,EqMassBal_WU,EqMaxQ,EqMinQ,EqMaxStor,EqMinStor,EqEvap,EqDelivery,EqRelease,EqRemovedCV,EqCost,EqHSI_CVinv,EqBud,EqRemovedCV2,Eq_WDepth,EqDVSGaus,EqDVSGompertz,EqDVSPoly,EqGateActRelease,EqGateActDeliv,EqGateAct2,EqGateAct3,EqWUAW_DVS,EqArea,EqHSIcompDVS,ObjectiveFunction/;
-
 
 
 option limrow = 10000
 option limcol = 10000
 OPTION  ITERLIM = 5000000
 option profile=3 ;
-option reslim = 5000000
+option reslim = 5000000;
 
-********************************
-*To evaluate multscen
-SETS
-   rs Aggregate results parameters /Obj,Area,WaterVol,ModStat,SolStat/;
+*+++++OA++Updated April 2016
 
-PARAMETERS
-   S_Res(ivc,sc,rs) Scenario results
-   S_WUAW(ivc,sc,yr,mn,dy,i) Objective function value by wetland unit (m2)
-   S_AREA(ivc,sc,yr,mn,dy,i) Wetted area by wetland unit (m2)
-   S_WatAvail(ivc,sc,mn,dy,jn) Total Water availability by junction (ha-m);
+*Simulation
+If ((ModelType eq 11),
 
-S_WatAvail(ivc,sc,mn,dy,jn) = WaterAvail(mn,dy,"Inflow",sc,jn);
+*      To proceed with the Simulation model
+          S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)  ;
 
-*Loop over the water availability scenarios
-LOOP((ivc,sc),
-*   Initialize initial invasive vegetation cover values
-    InitCV_iv2(wu) =  InitIVCMult(ivc)*wu_ts_data2(wu,"InitCViv");
+*        To proceed with the Gate Constraint
+         Solve Nov2015  MAXIMIZING Obj USING NLP ;
+else
+*   Optimization
+   If ((ModelType eq 31),
+*      To proceed with the Simulation model
+          S.fx(yr,mn,dy,wu)= DemandHy(yr,mn,dy,wu)  ;
 
-*   Initialize water availability values
-*    Inflow(yr,mn,dy,wu) =  WU_ts_data(yr,mn,dy,"Inflow",wu) ;
-    Inflow(yr,mn,dy,jn) =  WaterAvail(mn,dy,"Inflow",sc,jn);
+*        To proceed with the Gate Constraint
+         Solve Mar2016_DVS  MAXIMIZING Obj USING NLP ;
+      );
+);
 
-*   Set all decision variable levels to zero
+*As Tanks
+If ((ModelType eq 13),
+*        To proceed with the Gate Constraint
+         Solve GateConstraint  MAXIMIZING Obj USING NLP ;
+else
+*   Optimization
+   If ((ModelType eq 12),
+         Solve Nov2015 MAXIMIZING Obj USING NLP ;
+      );
+);
+
+
+*Spatial Wdepth
+
+If ((ModelType eq 33),
+*        To proceed with the Gate Constraint
+         Solve Mar2016_DVS_GatesConstraint  MAXIMIZING Obj USING NLP ;
+else
+*   Optimization
+   If ((ModelType eq 32),
+*^^         Solve Mar2016_DVS MAXIMIZING Obj USING NLP ;
+*Dummy running [to get initial values]
+     S.fx(yr,mn,dy,wu) = DemandHy(yr,mn,dy,wu);
+     Solve Mar2016_DVS MAXIMIZING Obj USING NLP ;
+
+*    Set all decision variable levels back to zero
       Q.L(yr,mn,dy,i,j) = 0;
-*OA Updated value
       S.L(yr,mn,dy,i) = 0;
-      delivery.L(yr,mn,dy,i)=0;
+      delivery.L(yr,mn,dy,i) = 0;
       R.L(yr,mn,dy,i) = 0;
       Evapo.L(yr,mn,dy,wu) = 0;
-*Variables related with Habitat and Cover Vegetation
-
-*OA Updated value -InitCV_iv2(i)
-      CVinvasive.L(yr,mn,dy,i) = 0;
+*Variables related with Habitat and Cover Vegetation - InitCV_iv2(i);
+      CVinvasive.L(yr,mn,dy,i) =  0;
       RemovedCV.L(yr,mn,dy,i) = 0;
-      HSI_CVinv.L(yr,mn,dy,i) = 0;
       Bud.L(yr,mn,dy,wu) = 0;
+
 *Variables related with Habitat and Water
       Area.L(yr,mn,dy,i) = 0;
       WDepth.L(yr,mn,dy,i) = 0;
-      HSI_spec.L(yr,mn,dy,i,spec) = 0;
-      HSI_compWD.L(yr,mn,dy,i) = 0;
-
-*%%%For gates%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     GateAct.L(yr,mn,dy) = 0;
-     GateActRelease.L(yr,mn,dy,wu) = 0;
-     GateActDeliv.L(yr,mn,dy,wu) = 0;
-*%%%%%%%%%%
 
 *Compilation
       HSIcomp.L(yr,mn,dy,i) = 0;
       WUAW.L(yr,mn,dy,i) = 0;
-**********************************************************************************************************************
+      Obj.L = 0;
 
-$ontext
-DVS.L(yr,mn,dy,wu,spec)$(DWparams(wu,spec,"p0") eq 1) =
-               (  DWparams(wu,spec,"p3")*( exp(-(((WDepth.L(yr,mn,dy,wu)-DWparams(wu,spec,"p1"))*(WDepth.L(yr,mn,dy,wu)-DWparams(wu,spec,"p1"))/(2*DWparams(wu,spec,"p2")**2)))))
-               + DWparams(wu,spec,"p6")*( exp(-(((WDepth.L(yr,mn,dy,wu)-DWparams(wu,spec,"p4"))*(WDepth.L(yr,mn,dy,wu)-DWparams(wu,spec,"p4"))/(2*DWparams(wu,spec,"p5")**2))))))
-                 * 10000;
-
-DVS.L(yr,mn,dy,wu,spec)$(DWparams(wu,spec,"p0") eq 2) =
-             (   DWparams(wu,spec,"p1")*WDepth.L(yr,mn,dy,wu)**4 + DWparams(wu,spec,"p2")*WDepth.L(yr,mn,dy,wu)**3
-              + DWparams(wu,spec,"p3")*WDepth.L(yr,mn,dy,wu)**2 + DWparams(wu,spec,"p4")*WDepth.L(yr,mn,dy,wu)
-              + DWparams(wu,spec,"p5"))*10000;
-$offtext
-
-*New version
-Solve Mar2016_DVS MAXIMIZING Obj USING NLP ;
-*Old version
-*Solve Nov2015 MAXIMIZING Obj USING NLP ;
+*Release bounds on storage set in prior scenario
+      S.LO(yr,mn,dy,wu) = MinStor(wu);
+      S.UP(yr,mn,dy,wu) = MaxStor(wu);
 
 
-*Surpress printing of solution
-*Mar2016_DVS.solprint = 2;
-
-****************************************************************************
-*To evaluate multscen
-*   Log scenario results
-    S_Res(ivc,sc,"Obj") = OBJ.L;
-    S_Res(ivc,sc,"SolStat") = Mar2016_DVS.SolveStat;
-    S_Res(ivc,sc,"ModStat") = Mar2016_DVS.ModelStat;
-    S_WUAW(ivc,sc,yr,mn,dy,i) = WUAW.L(yr,mn,dy,i);
-    S_AREA(ivc,sc,yr,mn,dy,i) = AREA.L(yr,mn,dy,i);
-
-Display Obj.l  ;
-
-    );
-
-*Post processing totals
-S_Res(ivc,sc,"Area") = sum((yr,mn,dy,i),S_AREA(ivc,sc,yr,mn,dy,i));
-S_Res(ivc,sc,"WaterVol") = sum((mn,dy,jn),WaterAvail(mn,dy,"Inflow",sc,jn));
+     Solve Mar2016_DVS MAXIMIZING Obj USING NLP ;
 
 
-Display S_Res;
+      );
+);
 
-*Send select results to GDX
-execute_unload "ResultWaIvc.gdx" S_Res,S_WatAvail,S_WUAW,S_AREA,InitIVCMult
-* Dump the gdx file to an Excel workbook
-Execute "gdx2xls ResultWaIvc.gdx"
 
-******************************************************************************
-$ontext
-*++++++Sept2015+++++++++ Incorporating multiple models in one file+++++++++++
-*Conditional to work with GUI input
-    if (ModelType eq 3,
-*        To proceed with the Gate Constraint
-         Solve GateConstraint  MAXIMIZING Obj USING NLP ;
-* The default is the optimization
-    else
-         Solve Nov2015 MAXIMIZING Obj USING NLP ) ;
-$offtext
+
+
+
+
 *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+Display Obj.l,  S.m  ;
+
+
+*===========================
+* Activate this to create an overall GDX file
+*Execute_Unload "Model_Results.gdx"
+*===========================
 
 
 
+*$ontext
+execute_unload "Result.gdx" S,
+WUAW,Area,initStor2,Inflow,
+TotalArea,MaxStor,
+WDepth
+HSI_CVinv, InitCV_iv2,CVinvasive,RemovedCV, HSI_CVinv,Bud
+,EqMassBalNonStor_Out,
+HSIcomp,
+HSI_spec
 
+execute 'gdxxrw.exe Result.gdx par=InitCV_iv2.l rng=CheckCV!D1:ZZ14 Cdim=1  SQ=N  var=RemovedCV.l rng=CheckCV!A16:ZZ29 SQ=N   var=CVinvasive.l rng=CheckCV!A31:ZZ44 var=Bud.l rng=CheckCV!A46:ZZ59  SQ=N var=HSI_CVinv.l rng=CheckCV!A61:ZZ74 Rdim=3 SQ=N  par=TotalArea.l rng=CheckCV!A77:ZZ107 Cdim=1  par=MaxStor.l rng=CheckCV!A82:ZZ107 Cdim=1'
+execute 'gdxxrw.exe Result.gdx var=ROW_Hydro.l rng=ROW_Water!'
+execute 'gdxxrw.exe Result.gdx var=WUAW2.l rng=WUAW2! Rdim=4 '
+execute 'gdxxrw.exe Result.gdx var=HSIcomp.l rng=HSIcomp! Rdim=4'
+execute 'gdxxrw.exe Result.gdx par=Inflow.l rng=CheckWater!A1:AZ14 '
+execute 'gdxxrw.exe Result.gdx par=initStor2.l rng=CheckWater!D16:AZ29  SQ=N  '
+execute 'gdxxrw.exe Result.gdx  var=S.l rng=CheckWater!A21:AZ34      '
+execute 'gdxxrw.exe Result.gdx  var=WDepth.l rng=CheckWater!A36:AZ49   '
+execute 'gdxxrw.exe Result.gdx  var=Area.l rng=CheckWater!A51:AZ64 Rdim=3 SQ=N   '
+execute 'gdxxrw.exe Result.gdx  var=HSI_CVinv.l rng=CheckWater!A69:BZ82 Rdim=3 Cdim=1'
+execute 'gdxxrw.exe Result.gdx var=WUAW.l rng=CheckWater!A86:BZ99 Rdim=3 Cdim=1'
+
+*$offtext
 
