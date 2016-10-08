@@ -27,11 +27,11 @@ This repository presents 4 main folders:
 
 
 
-[Version1.2_WetlandUnitsAsTanks]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel
+[Version1.2_WetlandUnitsAsTanks]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.Version1.2-WetlandUnitsAsTanks
 
-[Version1.5_SpatialWaterDepths]: 
+[Version1.5_SpatialWaterDepths]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Version1.5-SpatialWaterDepths
 
-[Scripts]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Scripts_for_Paper
+[Scripts]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.Scripts_for_Paper
 
 [Results]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.Results
 
@@ -44,10 +44,10 @@ This repository presents 4 main folders:
 | 1.2     | [Wetland units as a rectangular tanks] | May 2015 |[Workshop instruction] |
 | 1.5      | [Wetland units considering the spatial distribution of water depths] |   May 2016 |[Instruction] |
 
-[Workshop instruction]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.2-WetlandUnitsAsTanks
-[Instruction]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.5-SpatialDistributionOfWaterDepths
-[Wetland units as a rectangular tanks]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel/Version1.2-WetlandUnitsAsTanks
-[Wetland units considering the spatial distribution of water depths]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.SystemModel/Version1.5-SpatialDistributionOfWaterDepths
+[Workshop instruction]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Workshop/SWAMPS-v1.2.WorkshopInstructions.pdf
+[Instruction]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Workshop/SWAMPS_V1.5-Instructions.pdf
+[Wetland units as a rectangular tanks]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.Version1.2-WetlandUnitsAsTanks
+[Wetland units considering the spatial distribution of water depths]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Version1.5-SpatialWaterDepths
 
 ## How to use the model:
 
@@ -57,13 +57,15 @@ Steps to get started:
   1. You can download from www.gams.com.
   2. Make sure that your computer has Microsoft [Excel] and [Matlab] (R2013a or more recent)
 2. Download the folders contained on this GitHub repository. 
-3. Open the GAMS IDE, select File => Project, navigate to the folder Version1.5_SpatialDistributionOfWaterDepth\MultipleRun, enter a project name and click enter.
+3. Open the GAMS IDE, select File => Project, navigate to the folder [Version1.5_SpatialDistributionOfWaterDepth\MultipleRun], enter a project name and click enter.
 4. Select File "SWAMPS_v1.5_MultipleRun_4Scen" and Open it. This file containts 4 scenarios: (1)Previous Management (Base Case), (2) Automatic Gates, (3) Invasive Vegetation 2X and (4) Invasive Vegetation 3X.
-5. Press F9 or File => Run to optimize. GAMS will generate results for the 4 scenarios: (1)ResultSim (Previous Management), (2) ResultOpt (Automatic Gates), (3) ResultCV2 (Invasive Vegetation 2X) and (4) ResultCV3 (Invasive Vegetation 3X).
+5. Press F9 or run the File => GAMS will generate results for the 4 scenarios: (1)ResultSim (Previous Management), (2) ResultOpt (Automatic Gates), (3) ResultCV2 (Invasive Vegetation 2X) and (4) ResultCV3 (Invasive Vegetation 3X).
 6. To display graphical results from the GAMS results generated in step 5, open Matlab, change to the folder, select the scenario name and run the Matlab code "Generation_of_Figures"
 7. To run other scenarios, see "Alternative Scenarios" below 
 
 As a reference, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be" target="_blank">video</a> about how to start using the SWAMPS model.
+
+[Version1.5_SpatialDistributionOfWaterDepth\MultipleRun]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Version1.5-SpatialWaterDepths/MultipleRun
 
 
 <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be
@@ -78,8 +80,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 ## Graphical User Interface (GUI):
 A [GUI] was developed to facilitate the use of the SWAMPS. Instructions to setup and use the GUI are presented in its respective [documentation]. The GUI allows the user to run a single scenario with input data entered either within the GUI or in an Excel file. Use the Input Type menu to select the model version as either dataAsTank (version 1.2) or dataSpatialWD (version 1.5).
 
-[GUI]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.5-SpatialDistributionOfWaterDepths
-[documentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/Graphical%20User%20Interfaces/Version1.5-SpatialDistributionOfWaterDepths/SWAMPS_V1.5-Instructions.pdf
+[GUI]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Version1.5-SpatialWaterDepths/GUI_v1.5
+[documentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Workshop
 
 ![alt text] (https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/GUI.png?attachauth=ANoY7coHUNETvNV0hH4qCq1Nl4KqX05s4U0AgblClugZIspBztumCeqkWv3QKpeURYyD_XJwF-z_8e8yEnKnmugeqjbnbQZ8EUWp0K0B7sWVXHHJOkiG6QdYRnRcoq55iqUlm4nP6uTanM-EEdBeU3IDuOT5IM_111E72Pv6FVVEoxU8B-g5_evdQrxDmLuugsNlIGNzXCt97rYpYQoBMoxGgnGIqOg21uvVqEPWzxGyQJQRXPMnhxE%3D&attredirects=0)
 
@@ -104,7 +106,7 @@ The model can perform different scenarios such as:
 
 For more information, follow further instructions in the [Excel input file]. 
 
-[Excel input file]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.SystemModel/ModelCode_2ndVersion/MultipleRun/BRMBR_Input.xls
+[Excel input file]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/1.Version1.2-WetlandUnitsAsTanks/Model_v1.2/BRMBR_Input.xls
 [Bear River Migratory Bird Refuge]: http://www.fws.gov/refuge/bear_river_migratory_bird_refuge/
 
 [GAMS]: http://www.gams.com/
