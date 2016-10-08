@@ -18,8 +18,8 @@ The optimization model was programmed using the General Algebraic Modeling Syste
 This repository presents 4 main folders: 
 
 * [Version1.2_WetlandUnitsAsTanks]: This folder contains the version 1.2 of the optimization model. The input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures"). This folder also contains the GDX files [Results] that can be used to pass the input and output of the model into different programs.  
-* [Version1.5_SpatialWaterDepths]:  This folder contains the version 1.5 of the optimization model. The input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures"). This folder also contains the GDX files [Results] that can be used to pass the input and output of the model into different programs. 
-* [Scripts]: This folder contains the Matlab code used to process the figures on the <a href="https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/ManuscriptDraft/System%20Model_Alminagorta%2C%20Rosenberg%20and%20Kettenring.pdf" target="_blank">paper.</a>
+* [Version1.5_SpatialWaterDepths]:  This folder contains the version 1.5 of the optimization model. The input data is a simple Microsoft Excel file ("BRMBR_Input") and the results of the model can be graphically displayed using a Matlab code ("Generation_of-Figures"). This folder also contains the GDX files [Results1.5] that can be used to pass the input and output of the model into different programs. 
+* [Scripts]: This folder contains the Matlab code used to process the figures on the <a href="http://onlinelibrary.wiley.com/doi/10.1002/2015WR018105/abstract" target="_blank">paper.</a>
 * [SupplementaryDocumentation]: This folder contains the Graphical User Interfaces, LiDar data, Habitat Management Plans of the Refuge, previous presentations of the model and a copy of the [paper] submitted to the Water Resources Research Journal.
 
 
@@ -33,7 +33,9 @@ This repository presents 4 main folders:
 
 [Scripts]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.Scripts_for_Paper
 
-[Results]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/3.Results
+[Results]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/1.Version1.2-WetlandUnitsAsTanks/ResultsV1.2_WetlandUnitsAsTanks
+
+[Results1.5]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Version1.5-SpatialWaterDepths/ResultsV1.5_SpatialDistributionOfWaterDepths
 
 [SupplementaryDocumentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation
 
