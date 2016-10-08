@@ -60,8 +60,8 @@ Steps to get started:
   2. Make sure that your computer has Microsoft [Excel] and [Matlab] (R2013a or more recent)
 2. Download the folders contained on this GitHub repository. 
 3. Open the GAMS IDE, select File => Project, navigate to the folder [Version1.5_SpatialDistributionOfWaterDepth\MultipleRun], enter a project name and click enter.
-4. Select File "SWAMPS_v1.5_MultipleRun_4Scen" and Open it. This file containts 4 scenarios: (1)Previous Management (Base Case), (2) Automatic Gates, (3) Invasive Vegetation 2X and (4) Invasive Vegetation 3X.
-5. Press F9 or run the File => GAMS will generate results for the 4 scenarios: (1)ResultSim (Previous Management), (2) ResultOpt (Automatic Gates), (3) ResultCV2 (Invasive Vegetation 2X) and (4) ResultCV3 (Invasive Vegetation 3X).
+4. Select File "SWAMPS_v1.5_MultipleRun_4Scen". This file containts 4 scenarios: (1)Previous Management (Base Case), (2) Automatic Gates, (3) Invasive Vegetation 2X and (4) Invasive Vegetation 3X.
+5. Press F9 or run the File in point 4 => GAMS will generate results for the 4 scenarios: (1)ResultSim (Previous Management), (2) ResultOpt (Automatic Gates), (3) ResultCV2 (Invasive Vegetation 2X) and (4) ResultCV3 (Invasive Vegetation 3X).
 6. To display graphical results from the GAMS results generated in step 5, open Matlab, change to the folder, select the scenario name and run the Matlab code "Generation_of_Figures"
 7. To run other scenarios, see "Alternative Scenarios" below 
 
