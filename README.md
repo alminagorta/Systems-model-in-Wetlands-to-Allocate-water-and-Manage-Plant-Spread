@@ -62,8 +62,12 @@ Steps to get started:
 3. Open the GAMS IDE, select File => Project, navigate to the folder [Version1.5_SpatialDistributionOfWaterDepth\MultipleRun], enter a project name and click enter.
 4. Select File "SWAMPS_v1.5_MultipleRun_4Scen". This file containts 4 scenarios: (1)Previous Management (Base Case), (2) Automatic Gates, (3) Invasive Vegetation 2X and (4) Invasive Vegetation 3X.
 5. Press F9 or run the File in point 4 => GAMS will generate results for the 4 scenarios: (1)ResultSim (Previous Management), (2) ResultOpt (Automatic Gates), (3) ResultCV2 (Invasive Vegetation 2X) and (4) ResultCV3 (Invasive Vegetation 3X).
-6. To display graphical results from the GAMS results generated in step 5, open Matlab, change to the folder, select the scenario name and run the Matlab code "Generation_of_Figures"
-7. To run other scenarios, see "Alternative Scenarios" below 
+6. To display graphical results from the GAMS scenario results generated in step 5, open Matlab and change to the folder where the SWAMPS model and results are. Then enter the Matlab Command
+>>  Generation_of_Figures3('ResultOpt.xlsx') where ResultOpt.xlsx is the excel file of results generated for the optimization scenario. (Substitute a different excel file for different scenarios)
+
+7. To graphically compare results from 2 or more GAMS scenarios generated in step 5, enter the Matlab Command:
+>> CompareScenarios({'ResultSim' 'ResultOpt'},{'Prior Management' 'Model Recommend'},[1 3])
+where ResultSim and ResultOpt are the names of the two GDX files generated for the two optimization runs. See documentation in CompareScenarios.m for further use of the graphing utility.
 
 As a reference, see this <a href="https://www.youtube.com/watch?v=e5REaVgslx8&feature=youtu.be" target="_blank">video</a> about how to start using the SWAMPS model.
 
