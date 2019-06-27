@@ -89,7 +89,7 @@ A [GUI] was developed to facilitate the use of the SWAMPS. Instructions to setup
 [GUI]:https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/2.Version1.5-SpatialWaterDepths/GUI_v1.5
 [documentation]: https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/tree/master/4.SupplementaryDocumentation/Workshop
 
-![alt text] (https://c1c7bcfc-a-98501721-s-sites.googlegroups.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/Miscel/GUI.png?attachauth=ANoY7coHUNETvNV0hH4qCq1Nl4KqX05s4U0AgblClugZIspBztumCeqkWv3QKpeURYyD_XJwF-z_8e8yEnKnmugeqjbnbQZ8EUWp0K0B7sWVXHHJOkiG6QdYRnRcoq55iqUlm4nP6uTanM-EEdBeU3IDuOT5IM_111E72Pv6FVVEoxU8B-g5_evdQrxDmLuugsNlIGNzXCt97rYpYQoBMoxGgnGIqOg21uvVqEPWzxGyQJQRXPMnhxE%3D&attredirects=0)
+![](https://github.com/alminagorta/Systems-model-in-Wetlands-to-Allocate-water-and-Manage-Plant-Spread/blob/master/4.SupplementaryDocumentation/GUI.png)
 
 ## Input and Output of the Model
 The model uses a variety of input data to describe the hydrological, ecological, and management components. Model outputs comprise reports, time series, and maps that show water allocations and vegetation control actions among wetland units and how these actions affect the performance in each wetland unit and over time. The table below describes the main inputs and outputs of the model.
