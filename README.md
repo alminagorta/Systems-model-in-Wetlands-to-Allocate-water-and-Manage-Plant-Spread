@@ -138,13 +138,15 @@ Alminagorta, O., D. E. Rosenberg, and K. M. Kettenring (2016), Systems modeling 
 
 [doi:10.1002/2015WR018105]: http://onlinelibrary.wiley.com/doi/10.1002/2015WR018105/full
 
+[Omar Alminagorta]: https://sites.google.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/
+[David E. Rosenberg]: http://www.engr.usu.edu/cee/faculty/derosenberg/
+[Karin M. Kettenring]: http://www.cnr.usu.edu/htm/facstaff/Kettenring
+
 ## Authors :
 * [Omar Alminagorta], Former postdoctoral Associate at the Utah Water Research Laboratory, Utah State University, Logan, UT, o.alminagorta@aggiemail.usu.edu
 * [David E. Rosenberg], Associate Professor, Department of  Civil and Environmental Engineering and Utah Water Research Laboratory, Utah State University, Logan, UT, david.rosenberg@usu.edu
 * [Karin M. Kettenring], Associate Professor, Ecology Center and Department of Watershed Sciences, Utah State University, Logan, UT, karin.kettenring@usu.edu
-[Omar Alminagorta]: https://sites.google.com/a/aggiemail.usu.edu/omar-alminagorta-cabezas/
-[David E. Rosenberg]:http://www.engr.usu.edu/cee/faculty/derosenberg/
-[Karin M. Kettenring]: http://www.cnr.usu.edu/htm/facstaff/Kettenring
+
 
 ## In the News 
 
